@@ -1,0 +1,69 @@
+@import '../../Constants';
+
+.intro {
+  text-align: justify;
+  margin: 20px auto;
+  text-indent: 2em;
+  max-width: 75%;
+  padding: 10px;
+
+  @media screen and (max-width: $page-size-m) {
+    max-width: initial;
+    margin: 20px;
+  }
+}
+
+.stylists {
+  margin: 20px auto;
+  max-width: 75%;
+
+  &__item {
+    border-bottom: 1px solid $border_color;
+    padding: 10px 20px;
+    display: flex;
+
+    &:first-child {
+      border-top: 1px solid $border_color;
+    }
+
+    &_column {
+      justify-content: space-around;
+      flex-direction: column;
+      font-size: 0.9rem;
+      display: flex;
+      width: 100%;
+    }
+
+    &_title {
+      font-weight: normal;
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+    }
+
+    &_subtitle {
+      font-weight: normal;
+      font-size: 0.8rem;
+      margin: 0 0 8px 0;
+    }
+
+    &_price:after {
+      content: ' ₽';
+    }
+
+    @media screen and (max-width: $page-size-s) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__caption {
+    margin-left: 10px;
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+
+
+  @media screen and (max-width: $page-size-m) {
+    max-width: initial;
+    margin: 20px;
+  }
+}

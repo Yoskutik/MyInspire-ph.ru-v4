@@ -1,0 +1,116 @@
+[
+  {
+    "studio": "BEDFORD STUDIO",
+    "title": "Studio B",
+    "href": "https://vk.com/market-80652199?section=album_2&w=product-80652199_2068613%2Fquery",
+    "prices": [1200],
+    "description": "Красивый и лаконичный зал 30 м<sup>2</sup> с эркером и выходом на балкон! Легкий и непринужденный интерьер с лепниной и паркетом ХХ века!<br> Окна зала выходят на солнечную сторону!",
+    "furniture": true,
+    "darkness": false,
+    "photos_dir": "Bedford/B"
+  },
+  {
+    "studio": "BEDFORD STUDIO",
+    "title": "Studio C",
+    "href": "https://vk.com/market-80652199?section=album_2&w=product-80652199_1704192%2Fquery",
+    "prices": [1500],
+    "description": "Большой и очень светлый зал 85 м<sup>2</sup> с белой 7-метровой циклорамой! <br> Невероятная лепнина с позолотой, роскошные и высокие потолки, и огромное количество естественного света!",
+    "furniture": true,
+    "darkness": false,
+    "photos_dir": "Bedford/C"
+  },
+  {
+    "studio": "Grace studio",
+    "title": "Большой",
+    "href": "https://vk.com/market-156958510?w=product-156958510_2389260_8170a5a4424577fd92",
+    "prices": [1100],
+    "description": "Зал с белой циклорамой в ширину и глубину 5 метров. <br> В этом зале импульсный и постоянный свет, бумажные цветные фоны и фильтры.<br> Прямые лучи с 9 до 16 часов.",
+    "furniture": false,
+    "darkness": false,
+    "photos_dir": "Grace/Big"
+  },
+  {
+    "studio": "Grace studio",
+    "title": "Маленький",
+    "href": "https://vk.com/market-156958510?w=product-156958510_2389254_1c698c3efb2db05850",
+    "prices": [900],
+    "description": "Это небольшой зал 5.2х6.3 метра с деревянным полом и белыми стенами. Прямые лучи как и всегда с 9 до 16 часов.<br>Черный и серый фон.",
+    "furniture": false,
+    "darkness": false,
+    "photos_dir": "Grace/Small"
+  },
+  {
+    "studio": "Pavilion",
+    "title": "Industry Hall",
+    "href": "https://vk.com/market-55344392?w=product-55344392_1873943",
+    "prices": [
+      1300,
+      1400
+    ],
+    "description": "100 м<sup>2</sup><br> Три больших окна. Солнечная сторона. Подиум.",
+    "furniture": true,
+    "darkness": true,
+    "photos_dir": "Pavilion"
+  },
+  {
+    "studio": "Skypoint",
+    "title": "Balcony Room",
+    "href": "http://skypointstudio.ru/balconyroom",
+    "prices": [1400],
+    "description": "Балкон с видом на Неву и мосты. Деревянный пол, лестница и кровать. Зал 50 м<sup>2</sup>.",
+    "furniture": true,
+    "darkness": false,
+    "photos_dir": "Skypoint/Balcony",
+    "address": {
+      "location": "м. Чернышевская, наб. р. Фонтанки, д. 2",
+      "href": "place/набережная+реки+Фонтанки,+2,+Санкт-Петербург,+191187/@59.9472435,30.3347822,16.25z"
+    },
+    "contacts": {
+      "phone": "+7(981)688-90-88"
+    }
+  },
+  {
+    "studio": "Skypoint",
+    "title": "Первый этаж",
+    "href": "http://skypointstudio.ru/1etazh",
+    "prices": [1600],
+    "description": "Просторный светлый зал с большим количеством окон и естественным освещением. Окна выходят на питерские виды.",
+    "furniture": true,
+    "darkness": false,
+    "photos_dir": "Skypoint/First",
+    "address": {
+      "location": "м. Адмиралтейская, наб. р. Мойки, д. 30, кв. 82",
+      "href": "place/наб.+реки+Мойки,+30,+Санкт-Петербург,+191186/@59.9394256,30.3130716,15.25z"
+    },
+    "contacts": {
+      "phone": "+7(931)593-30-82"
+    }
+  },
+  {
+    "studio": "Skypoint",
+    "title": "Большая гостинная",
+    "href": "http://skypointstudio.ru/big",
+    "prices": [1800],
+    "description": "Белоснежная лепнина и натуральный дубовый паркет.<br>Площадь 110 м<sup>2</sup>",
+    "furniture": true,
+    "darkness": false,
+    "photos_dir": "Skypoint/Big",
+    "address": {
+      "location": "м. Чкаловская, Большой пр. П.С., д. 22-24",
+      "href": "place/Большой+проспект+П.С.,+22-24,+Санкт-Петербург,+197198/@59.9548915,30.2967425,15.5z/"
+    }
+  },
+  {
+    "studio": "Две комнаты",
+    "title": "1 комната",
+    "href": "https://www.instagram.com/stories/highlights/17966048467301643/",
+    "prices": [
+      1500,
+      1600
+    ],
+    "description": "Панорамные окна. Площадь 150 м<sup>2</sup>.",
+    "furniture": true,
+    "darkness": false,
+    "photos_dir": "2rooms"
+  }
+]

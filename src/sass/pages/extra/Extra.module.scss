@@ -1,0 +1,34 @@
+@import '~../../Constants';
+
+.block {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
+
+.nav {
+  border: 1px solid $border_color;
+  flex-direction: column;
+  position: relative;
+  display: flex;
+  padding: 10px;
+  top: -20px;
+}
+
+.link {
+  border: 1px solid $border_color;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #777777;
+  padding: 7px;
+
+  &:hover {
+    color: #000;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

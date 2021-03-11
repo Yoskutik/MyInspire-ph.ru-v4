@@ -1,0 +1,11 @@
+@import '../Constants';
+
+.close-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+
+  &:hover {
+    text-shadow: 1px 1px 3px $dark_color;
+  }
+}

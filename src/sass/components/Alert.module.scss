@@ -1,0 +1,47 @@
+@import '../Constants';
+
+.alert {
+  border: 1px solid transparent;
+  padding: 12px 25px 12px 20px;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+  position: relative;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+
+  &--info {
+    background-color: $info_color;
+    border-color: #bee5eb;
+  }
+
+  &--success {
+    background-color: $success_color;
+    border-color: #c3e6cb;
+  }
+
+  &--error {
+    background-color: $error_color;
+    border-color: #f5c6cb;
+  }
+}
+
+.close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.info {
+  border: 1px solid $border_color;
+  background: $white_color;
+  border-radius: 5px;
+  padding: 0.5rem;
+
+  &:hover {
+    background: darken($white_color, 3%);
+  }
+
+  &:active {
+    background: darken($white_color, 5%);
+  }
+}

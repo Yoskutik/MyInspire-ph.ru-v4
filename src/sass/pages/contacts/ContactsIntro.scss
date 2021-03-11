@@ -1,0 +1,39 @@
+@import '../../Constants';
+
+.intro {
+  border-bottom: 1px solid $border_color;
+  margin: 2rem auto 20px;
+  padding-bottom: 10px;
+
+  &__title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 10px 0;
+  }
+
+  &__text {
+    display: flex;
+
+    p {
+      text-align: justify;
+      text-indent: 2rem;
+      font-size: 1rem;
+      padding: 0 10px;
+      width: 100%;
+    }
+
+    @media screen and (max-width: $page-size-m) {
+      flex-wrap: wrap;
+      padding: 0 20px;
+
+      p {
+        margin: 8px 0;
+      }
+    }
+
+    @media screen and (max-width: $page-size-s) {
+      padding: 0 10px;
+    }
+  }
+}

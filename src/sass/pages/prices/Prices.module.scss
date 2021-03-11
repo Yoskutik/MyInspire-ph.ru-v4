@@ -1,0 +1,26 @@
+@import '../../Constants';
+@import 'PriceList';
+
+.conditions {
+  margin-bottom: 2.5rem;
+
+  @media screen and (max-width: $page-size-m) {
+    padding: 0 20px;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    margin: 25px 0;
+  }
+
+  &__text {
+    margin-bottom: 12px;
+    text-align: justify;
+    text-indent: 2rem;
+    font-size: 1rem;
+
+    @media screen and (max-width: $page-size-s) {
+      text-align: initial;
+    }
+  }
+}

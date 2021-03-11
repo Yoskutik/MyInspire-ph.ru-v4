@@ -1,0 +1,84 @@
+name: Testing
+
+env:
+  NODE_VERSION: '12.x'
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Test
+        run: |
+          npm install
+          npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: vh302.timeweb.ru
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          local-dir: ./app/
+          server-dir: ./tmp/
+
+  Notify:
+    needs: [Deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - uses: zcong1993/setup-timezone@master
+        with:
+          timezone: "Europe/Moscow"
+
+      - name: Creating variables
+        run: |
+          echo '${{ secrets.TEL_USERS_LIST }}' > users.txt
+          echo DATE_NOW="$(date +'%H:%M %d.%m.%Y')" >> $GITHUB_ENV
+          echo VERSION="$(cat package.json | jq .version | sed -e 's/^"//' -e 's/"$//')" >> $GITHUB_ENV
+
+      - name: Build was succeeded
+        if: ${{ success() }}
+        run: |
+          cat << EOF > message.txt
+          <b>${{ env.DATE_NOW }}</b>
+          🔥 Обновление сайта 🔥
+          ✅ <i>Успешное обновление сайта</i>
+          Текущая версия: ${{ env.VERSION }}
+          EOF
+
+      - name: Build was failured
+        if: ${{ failure() }}
+        run: |
+          cat << EOF > message.txt
+          <b>${{ env.DATE_NOW }}</b>
+          🔥 Обновление сайта 🔥
+          ❌ <i>Во время обновления возникли ошибки</i>
+          Обновление прервано
+          EOF
+
+      - name: Notification
+        run: |
+          cat users.txt | xargs -I {} sh -c '{ \
+            curl -X POST -H "Content-Type: application/json" \
+             -d "{\"chat_id\": \"{}\", \"text\": \"$(cat message.txt)\", \"parse_mode\": \"HTML\"}" \
+             https://api.telegram.org/bot${{ secrets.TOKEN }}/sendMessage; \
+            sleep 0.035; \
+          }'

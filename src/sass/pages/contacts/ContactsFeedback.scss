@@ -1,0 +1,114 @@
+@import '../../Constants';
+
+$message_block_length: 300px;
+
+.contacts__feedback {
+  width: 100%;
+
+  &_form {
+    margin-bottom: 20px;
+  }
+
+  &_field {
+    display: inline-block;
+    margin-bottom: 10px;
+    position: relative;
+    cursor: text;
+
+    &:after, &:before {
+      border-top: 2px solid #3399FF;
+      transition-duration: 0.3s;
+      position: relative;
+      display: block;
+      content: '';
+      width: 0;
+    }
+
+    &:after {
+      bottom: 1px;
+    }
+
+    &:before {
+      left: $message_block_length;
+      top: 1px;
+    }
+
+    &:hover {
+      &:after, &:before {
+        width: $message_block_length;
+      }
+
+      &:before {
+        left: 0;
+      }
+
+      & .contacts__feedback_label {
+        display: block;
+
+        &:before {
+          top: 2px;
+          height: calc(100% - 5px);
+        }
+
+        &:after {
+          height: calc(100% - 5px);
+        }
+      }
+    }
+  }
+
+  &_label {
+    &:before, &:after {
+      border-right: 2px solid #3399FF;
+      transition-duration: 0.3s;
+      position: absolute;
+      display: block;
+      content: '';
+      height: 0;
+    }
+
+    &:before {
+      top: calc(100% - 3px);
+      left: 0;
+    }
+
+    &:after {
+      left: 298px;
+      top: 2px;
+    }
+  }
+
+  &_input {
+    border: 1px solid $border_color;
+    width: $message_block_length;
+    box-sizing: border-box;
+    color: $main_color;
+    padding: 2px 5px;
+    font-size: 16px;
+
+    &.danger {
+      border-color: red;
+    }
+  }
+
+  textarea {
+    margin-bottom: -5px;
+  }
+
+  &_submit {
+    border: 1px solid $border_color;
+    width: $message_block_length;
+    color: $main_color;
+    background: white;
+    line-height: 1.5;
+    padding: 3px 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  &_error {
+    font-size: 0.9rem;
+    margin: 0.5rem;
+    color: red;
+  }
+}

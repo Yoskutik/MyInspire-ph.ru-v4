@@ -1,0 +1,81 @@
+@import 'Constants';
+
+html {
+  font-size: 18px;
+  height: 100%;
+
+  @media screen and (max-width: $page-size-xl) {
+    font-size: 17px;
+  }
+
+  @media screen and (max-width: $page-size-l) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: $page-size-s) {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-family: Gotham, sans-serif;
+  flex-direction: column;
+  color: $main_color;
+  font-size: 1rem;
+  display: flex;
+  height: 100%;
+  margin: 0;
+
+  #__next {
+    flex-direction: column;
+    display: flex;
+    height: 100%;
+  }
+}
+
+
+.page {
+  font-family: Gotham, sans-serif;
+  flex-direction: column;
+  color: $main_color;
+  font-size: 1rem;
+  display: flex;
+  margin: 0;
+
+  &__loading-spinner {
+    height: 100%;
+  }
+}
+
+button {
+  font-family: Gotham, sans-serif;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input:focus, textarea {
+  outline: none;
+}
+
+.super-title {
+  position: fixed;
+  top: -200px;
+}
+
+a {
+  color: #5c5c65;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@font-face {
+  src: url(/Gotham.otf);
+  font-display: fallback;
+  font-family: Gotham;
+}

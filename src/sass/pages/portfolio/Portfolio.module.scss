@@ -1,0 +1,64 @@
+@import '../../Constants';
+
+.portfolio {
+  margin: 20px auto;
+  max-width: 900px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.thumbnail {
+  width: calc(33% - 14px);
+  position: relative;
+  margin: 7px;
+
+  @media screen and (max-width: 700px) {
+    width: calc(50% - 14px);
+  }
+
+  @media screen and (max-width: $page-size-s) {
+    width: 100%;
+  }
+
+  &__title {
+    transition-duration: 1s;
+    justify-content: center;
+    align-items: center;
+    color: $white_color;
+    position: absolute;
+    background: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+
+  &__photo {
+    border: 1px solid $border_color;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+
+    img {
+      transition-duration: 1s;
+      transform: scale(1.1);
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  &:hover, &.hover {
+    .thumbnail__title {
+      opacity: 0.5;
+    }
+
+    img {
+      transform: scale(1.3);
+    }
+  }
+}

@@ -1,0 +1,153 @@
+@use '../../Constants';
+
+.location {
+  border-bottom: 1px solid Constants.$border_color;
+  align-items: flex-start;
+  padding: 20px 0;
+  margin: 0 auto;
+  max-width: 70%;
+  display: flex;
+
+  .photos {
+    align-items: flex-start;
+    margin-right: 1.3rem;
+    padding-right: 95px;
+    position: relative;
+    display: flex;
+
+    .mainPhoto {
+      margin-right: 0.7rem;
+      width: 320px;
+    }
+
+    .extra {
+      position: absolute;
+      overflow: hidden;
+      bottom: 0;
+      right: 0;
+      top: 0;
+
+      .photosContainer {
+        justify-content: space-between;
+        flex-direction: column;
+        overflow-y: scroll;
+        position: relative;
+        display: flex;
+        height: 100%;
+        width: 95px;
+
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+      }
+
+      img {
+        box-sizing: border-box;
+        border: 2px solid #fff;
+        max-width: 100%;
+        cursor: pointer;
+
+        &.active, &:hover {
+          box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.1);
+          border: 2px solid Constants.$border_color;
+        }
+      }
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+      font-size: 1.3rem;
+      font-weight: normal;
+    }
+
+    .address {
+      margin-top: auto;
+
+      a {
+        color: Constants.$main_color;
+      }
+    }
+
+    .list {
+      padding-left: 2rem;
+      margin: 0.5rem 0 0.8rem 0;
+    }
+  }
+
+  @media screen and (max-width: Constants.$page-size-l) {
+    max-width: initial;
+    padding: 20px;
+  }
+
+  @media screen and (max-width: Constants.$page-size-m) {
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .photos {
+      margin: 0;
+    }
+
+    .info {
+      max-width: 460px;
+
+      .address {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .photos {
+      padding-right: 27%;
+      margin: 0 20px;
+
+      .mainPhoto {
+        width: 100%;
+      }
+
+      .extra {
+        width: 27%;
+
+        .photosContainer {
+          width: 100%;
+        }
+      }
+
+      .info {
+        margin: 0 20px;
+      }
+    }
+  }
+}
+
+.arrow {
+  position: absolute;
+  left: calc(50% - 6px);
+  z-index: 1;
+
+  &.down {
+    bottom: 10px;
+    animation: up-down 1.5s infinite linear;
+  }
+
+  &.up {
+    top: 10px;
+    animation: down-up 1.5s infinite linear;
+  }
+}
+
+@keyframes up-down {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-5px); }
+  100% { transform: translateY(0);}
+}
+
+@keyframes down-up {
+  0%   { transform: translateY(0) rotate(180deg); }
+  50%  { transform: translateY(5px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(180deg);}
+}

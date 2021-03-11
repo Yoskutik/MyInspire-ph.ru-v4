@@ -1,0 +1,18 @@
+@import '../Constants';
+
+.container {
+  border-bottom: 1px solid $border_color;
+  padding-bottom: 15px;
+  margin-top: 15px;
+}
+
+.breadcrumbs {
+  padding-left: 8px;
+  width: 1200px;
+
+  @media screen and (max-width: $page-size-m) {
+    margin-left: 35px;
+    margin-right: 0;
+    width: initial;
+  }
+}

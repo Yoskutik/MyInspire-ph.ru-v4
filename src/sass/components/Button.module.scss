@@ -1,0 +1,21 @@
+@import '../Constants';
+
+.button {
+  border: 1px solid $border_color;
+  justify-content: center;
+  background: transparent;
+  align-items: center;
+  display: flex;
+
+  &:hover {
+    background: $white_color;
+  }
+
+  &:active {
+    background: darken($white_color, 5%);
+  }
+
+  &--text {
+    padding: 6px 12px;
+  }
+}

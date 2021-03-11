@@ -1,0 +1,19 @@
+@import '../../Constants';
+
+.label {
+  border: 1px solid $border_color;
+  display: flex;
+}
+
+.input {
+  font-family: Gotham, sans-serif;
+  padding: 5px 8px;
+  font-size: 1rem;
+  border: none;
+  width: 100%;
+}
+
+.button {
+  border: none;
+  border-left: 1px solid $border_color;
+}

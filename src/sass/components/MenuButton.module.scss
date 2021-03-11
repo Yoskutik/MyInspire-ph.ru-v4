@@ -1,0 +1,41 @@
+@import '../Constants';
+
+.dropdown-button {
+  left: $dropdown-left-padding;
+  background: #f8f9fa;
+  border-radius: 5px;
+  position: absolute;
+  padding: 9px 11px;
+  display: none;
+  border: none;
+  top: 17px;
+
+  &:hover {
+    background: #e2e6ea;
+  }
+
+  &:active {
+    background: #dae0e5;
+  }
+
+  span {
+    background: darkgray;
+    margin-bottom: 5px;
+    display: block;
+    width: 25px;
+    height: 5px;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: $page-size-l) {
+    display: block;
+  }
+
+  @media screen and (max-width: $page-size-s) {
+    left: 15px;
+    top: 14px;
+  }
+}

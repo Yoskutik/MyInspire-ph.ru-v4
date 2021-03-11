@@ -1,0 +1,81 @@
+@import '../../Constants';
+@import 'ContactsIntro';
+@import 'ContactsFeedback';
+
+.contacts {
+  margin-top: 20px;
+
+  &__container {
+    max-width: 75%;
+    margin: 0 auto;
+    display: flex;
+
+    @media screen and (max-width: $page-size-l) {
+      max-width: initial;
+    }
+
+    @media screen and (max-width: $page-size-s) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__card {
+    width: 100%;
+
+    &_name {
+      margin: 0.7rem 0 0.7rem 0;
+      font-weight: normal;
+      font-size: 1.05rem;
+    }
+
+    &_city {
+      font-weight: normal;
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+    }
+
+    @media screen and (max-width: $page-size-m) {
+      margin-bottom: 25px;
+      max-width: 300px;
+    }
+  }
+
+  &__links {
+    &_item {
+      margin: 0 0 0.4rem 0;
+      align-items: center;
+      display: flex;
+
+      a {
+        margin-left: 5px;
+      }
+    }
+
+    &_copy {
+      background: white;
+      margin-left: 10px;
+      border: none;
+      height: 16px;
+      padding: 0;
+
+      @media screen and (max-width: $page-size-s) {
+        margin-left: 7px;
+      }
+    }
+  }
+
+  &__social {
+    margin-top: 1.7rem;
+
+    &_title {
+      margin: 0 0 0.7rem 0;
+      font-size: 1rem;
+    }
+
+    &_links a {
+      text-decoration: none;
+      margin-right: 0.5rem;
+    }
+  }
+}

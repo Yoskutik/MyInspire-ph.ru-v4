@@ -1,0 +1,53 @@
+@import '../../Constants';
+@import 'InfoCard';
+
+.info {
+  background: white;
+  padding: 20px 0 0;
+
+  &__container {
+    border-bottom: 1px solid $border_color;
+    padding: 0 20px 2.3rem 20px;
+    align-items: flex-start;
+    display: flex;
+
+    @media screen and (max-width: $page-size-l) {
+      padding: 0 0 2rem 0;
+    }
+  }
+
+  @media screen and (max-width: $page-size-m) {
+    padding-top: 0;
+
+    &__container {
+      padding: 0 20px 20px;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__message {
+    margin-right: 3rem;
+
+    &_title {
+      font-weight: normal;
+      margin: 25px 0 12px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    p {
+      text-align: justify;
+      text-indent: 2rem;
+      font-size: 1.1rem;
+      margin-bottom: 0;
+    }
+
+    @media screen and (max-width: $page-size-l) {
+      margin-right: 1.8rem;
+    }
+
+    @media screen and (max-width: $page-size-m) {
+      margin: 0 0 20px 0;
+    }
+  }
+}

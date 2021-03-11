@@ -1,0 +1,43 @@
+{
+  "BEDFORD STUDIO": {
+    "href": "https://www.bedford.studio/",
+    "address": {
+      "location": "м. Чернышевская, ул. Кирочная, д. 24",
+      "href": "place/Кирочная+ул.,+24,+Санкт-Петербург,+191123/@59.944155,30.3556314,17z"
+    },
+    "phone": "+7 (812) 905-29-56"
+  },
+  "Grace studio": {
+    "href": "https://vk.com/gracestudiospb",
+    "address": {
+      "location": "м. Петроградская, ул. Чапаева, д. 25",
+      "href": "place/ул.+Чапаева,+25,+Санкт-Петербург,+197101/@59.9644573,30.3284216,17z"
+    },
+    "contacts": {
+      "phone": "+7 (911) 905-45-70"
+    }
+  },
+  "Pavilion": {
+    "href": "http://pavilion-studio.ru/",
+    "address": {
+      "location": "м. Чкаловская, ул. Гатчинская, д. 28, вход №4",
+      "href": "place/Гатчинская+ул.,+28,+Санкт-Петербург,+196110/@59.9632987,30.2936699,17z"
+    },
+    "contacts": {
+      "phone": "+7 (921) 449-59-38"
+    }
+  },
+  "Skypoint": {
+    "href": "http://www.skypointstudio.ru/"
+  },
+  "Две комнаты": {
+    "href": "https://www.instagram.com/two_rooms_studio/",
+    "address": {
+      "location": "м. Василеостровская, Кожевенная линия, д. 34Ж",
+      "href": "place/Кожевенная+линия,+34,+Санкт-Петербург,+199106/@59.9237202,30.2422902,17z/"
+    },
+    "contacts": {
+      "phone": "+7 (905) 256-11-12"
+    }
+  }
+}

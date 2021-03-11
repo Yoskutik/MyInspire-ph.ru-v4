@@ -1,0 +1,118 @@
+@import '../../../Constants';
+
+.hall {
+  border-bottom: 1px solid $border_color;
+  padding: 1.5rem 0;
+
+  &:first-child {
+    padding-top: 1rem;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__title {
+    font-weight: normal;
+    margin: 0 0 1.4rem;
+    font-size: 1.5rem;
+  }
+
+  &__body {
+    display: flex;
+  }
+
+  &__preview {
+    align-items: flex-start;
+    margin-right: 2rem;
+    display: flex;
+
+    &_main-image {
+      margin-right: 0.5rem;
+      width: 520px;
+
+      &.single {
+        width: calc(620px + 0.5rem);
+        margin-right: 0;
+      }
+    }
+
+    &_images {
+      flex-shrink: 0;
+      font-size: 0;
+      width: 100px;
+    }
+
+    &_small-image {
+      margin-bottom: 0.5rem;
+      border: 2px solid #fff;
+      max-width: 100%;
+      cursor: pointer;
+
+      &:hover, &.active {
+        box-shadow: 0 0 0.15rem rgba(0, 0, 0, 0.1);
+        border: 2px solid $border_color;
+      }
+    }
+  }
+
+  &__info {
+    &_name {
+      font-weight: normal;
+      margin: 0 0 0.9rem;
+      font-size: 1.4rem;
+    }
+
+    &_price {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      display: block;
+
+      &:after {
+        content: " ₽";
+      }
+    }
+
+    &_description {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    &_contacts p {
+      margin: 0.3rem 0 0 0;
+    }
+  }
+
+  @media screen and (max-width: $page-size-l) {
+    padding: 1.5rem 20px;
+
+    &__body {
+      flex-wrap: wrap;
+    }
+
+    &__preview {
+      margin: 0 0 20px 0;
+      width: 100%;
+
+      &_main-image {
+        width: calc(100% - 100px);
+
+        &.single {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $page-size-m) {
+    &__preview {
+      &_main-image {
+        width: 81%;
+      }
+
+      &_images {
+        width: 19%;
+      }
+    }
+  }
+}

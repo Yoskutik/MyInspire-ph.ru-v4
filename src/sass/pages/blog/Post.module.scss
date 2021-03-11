@@ -1,0 +1,50 @@
+@import '../../Constants';
+
+.container {
+  align-items: flex-start;
+  margin: 20px auto;
+  display: flex;
+  width: 900px;
+
+  @media screen and (max-width: $page-size-l) {
+    flex-wrap: wrap;
+  }
+
+  @media screen and (max-width: $page-size-m) {
+    width: calc(100% - 30px);
+  }
+}
+
+.left {
+  flex: 1;
+
+  @media screen and (max-width: $page-size-l) {
+    flex: initial;
+    width: 100%;
+  }
+}
+
+.right {
+  border: 1px solid $border_color;
+  flex-direction: column;
+  margin-left: 20px;
+  display: flex;
+  width: 300px;
+
+  @media screen and (max-width: $page-size-l) {
+    margin: 0;
+  }
+
+  @media screen and (max-width: $page-size-m) {
+    width: 100%;
+  }
+}
+
+.rightTitle {
+  border-bottom: 1px solid $border_color;
+  padding: 20px;
+}
+
+.title {
+  font-size: 1.2rem;
+}

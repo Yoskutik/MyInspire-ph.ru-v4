@@ -1,0 +1,17 @@
+$main_color: #5c5c65;
+$border_color: #E0E0E0;
+$lighten_color: lighten($main_color, 30%);
+$dark_color: #1d262d;
+$white_color: #fafafa;
+$gray_color: darken($white_color, 20%);
+
+$info_color: #d1ecf1;
+$success_color: #d4edda;
+$error_color: #f8d7da;
+
+$dropdown-left-padding: 35px;
+
+$page-size-xl: 1220px;
+$page-size-l: 980px;
+$page-size-m: 767px;
+$page-size-s: 410px;

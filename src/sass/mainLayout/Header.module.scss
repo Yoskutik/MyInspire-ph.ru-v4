@@ -1,0 +1,93 @@
+@import '../Constants';
+
+.header {
+  border-bottom: 1px solid $border_color;
+  text-transform: uppercase;
+  padding: 1.2rem 0 1rem 0;
+  letter-spacing: 1px;
+  background: #fff;
+
+  &__container {
+    align-items: center;
+    display: flex;
+    height: 43px;
+  }
+
+  &__title {
+    font-weight: normal;
+    align-items: center;
+    margin: 0 0 0 auto;
+    line-height: 1.5;
+    font-size: 1rem;
+    display: flex;
+    padding: 8px;
+
+    @media screen and (max-width: $page-size-m) {
+      padding-right: 24px;
+    }
+
+    @media screen and (max-width: $page-size-s) {
+      padding-right: 15px;
+    }
+  }
+
+  &__nav {
+    flex-wrap: wrap;
+    display: flex;
+    z-index: 1;
+
+    a {
+      box-sizing: border-box;
+      text-decoration: none;
+      color: $main_color;
+      padding: 8px;
+
+      span:after, h3:after {
+        border-top: 1px solid $lighten_color;
+        transition-duration: 0.3s;
+        position: relative;
+        display: block;
+        content: '';
+        left: 50%;
+        width: 0;
+      }
+
+      span, h3 {
+        display: inline-block;
+        font-weight: inherit;
+        font-size: inherit;
+        margin: 0;
+
+        &:hover {
+          color: $lighten_color;
+
+          &:after {
+            width: 100%;
+            left: 0;
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: $page-size-l) {
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      left: $dropdown-left-padding;
+      flex-direction: column;
+      border-radius: 5px;
+      background: white;
+      position: absolute;
+      padding: 6px 0;
+      display: none;
+      top: 62px;
+
+      a {
+        padding: 0.5rem;
+      }
+    }
+
+    @media screen and (max-width: $page-size-s) {
+      top: 60px;
+      left: 15px;
+    }
+  }
+}

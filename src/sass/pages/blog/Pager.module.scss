@@ -1,0 +1,27 @@
+@import '../../Constants';
+
+.pager {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.button {
+  margin-left: 5px;
+}
+
+.label {
+  display: flex;
+}
+
+.input {
+  border: 1px solid $border_color;
+  text-align: center;
+  margin-left: 5px;
+  width: 35px;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

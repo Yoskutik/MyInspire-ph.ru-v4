@@ -1,0 +1,90 @@
+@import '../../Constants';
+
+.info__card {
+  border: 1px solid $border_color;
+  border-radius: 5px;
+  padding: 15px;
+
+  &_avatar {
+    border-bottom: 1px solid $border_color;
+    padding: 0.7rem 0.7rem 1.5rem 0.7rem;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    width: 250px;
+
+    @media screen and (max-width: $page-size-l) {
+      width: 225px;
+    }
+
+    @media screen and (max-width: $page-size-m) {
+      width: 200px;
+    }
+
+    img {
+      border-radius: 5px;
+    }
+  }
+
+  &_title {
+    margin-bottom: 12px;
+    font-weight: normal;
+    font-size: 1.3rem;
+    margin-top: 0;
+  }
+
+  &_subtitle {
+    margin-bottom: 12px;
+    font-weight: normal;
+    font-size: 1.1rem;
+    margin-top: 0;
+    opacity: 0.7;
+  }
+
+  &_description {
+    margin: 0 0 10px 0;
+    font-size: 0.9rem;
+  }
+
+  &_social {
+    display: flex;
+
+    a {
+      text-decoration: none;
+      margin-right: 10px;
+    }
+  }
+
+  @media screen and (max-width: $page-size-m) and (min-width: 500px) {
+    display: flex;
+    width: 100%;
+
+    &_title {
+      margin: 12px 0 8px 0;
+    }
+
+    &_avatar {
+      border-right: 1px solid $border_color;
+      padding: 10px 20px 10px 10px;
+      border-bottom: none;
+      margin: 0 20px 0 0;
+      width: 100%;
+
+      img {
+        max-width: 11.5rem;
+      }
+    }
+
+    &_social {
+      margin-top: auto;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+
+    &_avatar {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
