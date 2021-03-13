@@ -4,7 +4,7 @@ const fs = require('fs');
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
 module.exports = phase => {
-    const telegramBotToken = fs.readFileSync(path.resolve(os.homedir(), 'secrets', 'bot'));
+    // const telegramBotToken = fs.readFileSync(path.resolve(os.homedir(), 'secrets', 'bot'));
 
     return {
         trailingSlash: true,
@@ -17,8 +17,10 @@ module.exports = phase => {
         serverRuntimeConfig: {
             rootDir: __dirname.replace(/\\/g, '/'),
             telegram: {
-                token: telegramBotToken,
-                usersFile: path.resolve(os.homedir(), 'telegram', 'users.json'),
+                token: 'asdasdasd',
+                // token: telegramBotToken,
+                usersFile: 'asdasd',
+                // usersFile: path.resolve(os.homedir(), 'telegram', 'users.json'),
             },
         },
         webpack: config => {
