@@ -8,20 +8,21 @@
   &_avatar {
     border-bottom: 1px solid $border_color;
     padding: 0.7rem 0.7rem 1.5rem 0.7rem;
-    box-sizing: border-box;
+    //box-sizing: border-box;
     margin-bottom: 20px;
-    width: 250px;
+    width: 225px;
 
     @media screen and (max-width: $page-size-l) {
-      width: 225px;
+      width: 200px;
     }
 
     @media screen and (max-width: $page-size-m) {
-      width: 200px;
+      width: 175px;
     }
 
     img {
       border-radius: 5px;
+      max-width: 100%;
     }
   }
 
@@ -83,8 +84,9 @@
     width: 100%;
 
     &_avatar {
-      display: flex;
       justify-content: center;
+      display: flex;
+      width: initial;
     }
   }
 }

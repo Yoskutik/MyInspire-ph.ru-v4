@@ -9,11 +9,10 @@ import { Breadcrumbs, Container, MainLayout } from '@components';
 import styles from '@sass/pages/blog/Post.module.scss';
 
 const title = 'Мельникова Татьяна | Личный блог | ';
-const description = '...';
-const keywords = '...';
+const keywords = 'Фотограф Санкт-Петербург, Мельникова Татьяна, Фотограф СПб, Фотосессия СПб, личный блог, фотография';
 
 const PostPage: FC<{ item: IBlogItem, headers: IBlogInfo[] }> = ({ item, headers }) => (
-    <MainLayout title={title + item.title} description={description} keywords={keywords}>
+    <MainLayout title={title + item.title} description={item.body[0] as string} keywords={keywords}>
         <Breadcrumbs/>
         <Container cls={styles.container}>
             <div className={styles.left}>

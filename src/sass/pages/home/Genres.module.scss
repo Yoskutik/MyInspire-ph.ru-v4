@@ -89,6 +89,12 @@
         width: 100%;
       }
     }
+
+    @media screen and (max-width: 500px) {
+      &_photo {
+        padding: 0 1.5rem;
+      }
+    }
   }
 
   &__genre {

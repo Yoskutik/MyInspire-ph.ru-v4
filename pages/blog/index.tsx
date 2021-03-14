@@ -7,8 +7,9 @@ import { Container, MainLayout } from '@components';
 import styles from '@sass/pages/blog/BlogPage.module.scss';
 
 const title = 'Фотограф в Санкт-Петербурге | Мельникова Татьяна | Личный блог';
-const description = '...';
-const keywords = '...';
+const description = `Здесь я даю советы о том, что нужно сделать, чтобы получить от фотосессии самые лучше кадры;
+рассказываю о себе и о внутренней кухне фотографии`;
+const keywords = 'Фотограф Санкт-Петербург, Мельникова Татьяна, Фотограф СПб, Фотосессия СПб, личный блог, фотография';
 
 const BlogPage: FC<{ items: IBlogItem[], maxPage }> = ({ items, maxPage }) => (
     <MainLayout title={title} description={description} keywords={keywords}>
