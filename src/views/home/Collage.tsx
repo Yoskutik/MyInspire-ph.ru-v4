@@ -38,11 +38,11 @@ export const Collage: FC<CollageProps> = ({ isMobile, photos, onFirstImageLoad }
 
     return (
         <div className={styles.collage}>
-            {images.slice(-2).map(src => (
+            {images.slice(-2).map((src, i) => (
                 <Picture src={`/photos/home/${isMobile ? 'vertical' : 'horizontal'}/${src}.jpg`} imgCls={styles.img}
-                         key={src} onLoad={onImageLoad}/>
+                         key={src} onLoad={onImageLoad} lazy={i === 0}/>
             ))}
-            <ArrowIcon cls={styles.arrow} size={20} />
+            <ArrowIcon cls={styles.arrow} size={20}/>
         </div>
     );
 };
