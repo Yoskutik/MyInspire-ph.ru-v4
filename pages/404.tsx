@@ -10,6 +10,7 @@ const style: CSSProperties = {
     flexDirection: 'column',
 };
 
+// TODO картинку сасную
 const Page404: FC = () => (
     <MainLayout title="Страница не найдена" robots={false}>
         <Container style={style}>

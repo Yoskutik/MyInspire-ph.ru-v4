@@ -1,4 +1,5 @@
 .collage {
+  position: relative;
   max-width: 100%;
 
   &.horizontal {
@@ -21,8 +22,9 @@
 
   .arrow {
     animation: up-down 1.5s infinite linear;
-    visibility: hidden;
+    left: calc(50% - 10px);
     position: absolute;
+    fill: #FAFAFA;
   }
 }
 

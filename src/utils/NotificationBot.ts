@@ -7,8 +7,8 @@ const { serverRuntimeConfig } = getConfig();
 export class NotificationBot extends TelegramBot {
     private readonly userIds: Set<number>;
 
-    constructor(token: string) {
-        super(token, { polling: true });
+    constructor() {
+        super(serverRuntimeConfig.telegram.token, { polling: true });
         try {
             this.userIds = new Set(JSON.parse(fs.readFileSync(serverRuntimeConfig.telegram.usersFile, 'utf-8')));
         } catch {
@@ -17,7 +17,7 @@ export class NotificationBot extends TelegramBot {
         this.on('message', message => {
             if (!this.userIds.has(message.chat.id)) {
                 this.userIds.add(message.chat.id);
-                fs.writeFileSync(serverRuntimeConfig.telegram.usersFile, JSON.stringify([...this.userIds]));
+                fs.writeFileSync(serverRuntimeConfig.telegram.usersFile, JSON.stringify([...this.userIds]), 'utf-8');
             }
         });
     }

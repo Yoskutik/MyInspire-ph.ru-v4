@@ -24,8 +24,7 @@ export const Home: FC<HomeProps> = ({ isMobile, photos }) => {
     }, 5));
 
     return <>
-        <Collage isMobile={isMobile} photos={photos}
-                 onFirstImageLoad={() => window.dispatchEvent(new Event('resize'))}/>
+        <Collage isMobile={isMobile} photos={photos} arrowTop={infoMargin}/>
         <Info marginTop={infoMargin}/>
         <Genres/>
     </>;

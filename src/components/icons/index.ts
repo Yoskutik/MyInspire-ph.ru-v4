@@ -9,3 +9,4 @@ export * from './SearchIcon';
 export * from './DeleteIcon';
 export * from './FullScreenOpenIcon';
 export * from './FullScreenCloseIcon';
+export * from './RubbleIcon';

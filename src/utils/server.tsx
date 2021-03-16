@@ -1,4 +1,5 @@
 import fs from 'fs';
+import os from 'os';
 import getConfig from 'next/config';
 import glob from 'glob';
 
@@ -15,11 +16,11 @@ export const getPhotos = (path: string): string[] => {
     return newPaths;
 };
 
-if (!fs.existsSync(`${rootDir}/statistics`)) {
-    fs.mkdirSync(`${rootDir}/statistics`);
+if (!fs.existsSync(`${os.homedir()}/statistics`)) {
+    fs.mkdirSync(`${os.homedir()}/statistics`);
 }
 
-const postVisitorsPath = `${rootDir}/statistics/postVisitors.json`;
+const postVisitorsPath = `${os.homedir()}/statistics/postVisitors.json`;
 let postVisitors: Record<string, number>;
 try {
     postVisitors = JSON.parse(fs.readdirSync(postVisitorsPath, 'utf-8').join(''));

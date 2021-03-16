@@ -5,6 +5,12 @@ $message_block_length: 300px;
 .contacts__feedback {
   width: 100%;
 
+  @media screen and (max-width: $page-size-l) {
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+
   &_form {
     margin-bottom: 20px;
   }

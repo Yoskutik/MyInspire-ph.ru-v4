@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { $$, debounce, isElementVisible, useEventListener } from '@utils';
 import { Container, Picture } from '@components';
 import genres from '@data/genres.json';
@@ -28,7 +28,7 @@ const Genre: FC<GenreProps> = ({ imgSrc, paragraphs, title }) => (
     </Container>
 );
 
-export const Genres: FC = () => {
+export const Genres: FC = memo(() => {
     useEventListener(globalThis, 'scroll', debounce(() => {
         $$(`.${styles.genres__container}`).forEach(it => {
             if (isElementVisible(it, 50)) {
@@ -48,4 +48,4 @@ export const Genres: FC = () => {
             ))}
         </div>
     );
-};
+});

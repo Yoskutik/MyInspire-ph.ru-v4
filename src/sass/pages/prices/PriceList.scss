@@ -5,6 +5,13 @@
   flex-wrap: wrap;
   display: flex;
 
+  & > hr {
+    border-color: $border_color;
+    border-top: 0;
+    margin-top: 20px;
+    width: 100%;
+  }
+
   &__item {
     padding: 1.5rem 1rem 1.5rem 2rem;
     border: 1px solid $border_color;
@@ -36,9 +43,9 @@
     &_price {
       font-size: 1rem;
 
-      &:after {
-        font-weight: normal;
-        content: ' ₽';
+      & > span {
+        align-items: center;
+        display: flex;
       }
 
       &.discount {

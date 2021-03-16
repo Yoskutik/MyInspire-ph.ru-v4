@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, memo, useEffect, useState } from 'react';
 import { $$ } from '@utils';
 import { Picture } from '@components';
 import { ArrowIcon } from '@components/icons';
@@ -10,10 +10,10 @@ export interface CollageProps {
         vertical: string[];
         horizontal: string[];
     };
-    onFirstImageLoad: () => void;
+    arrowTop: number;
 }
 
-export const Collage: FC<CollageProps> = ({ isMobile, photos, onFirstImageLoad }) => {
+export const Collage: FC<CollageProps> = memo(({ isMobile, photos, arrowTop }) => {
     const [images, setImages] = useState(photos[isMobile ? 'vertical' : 'horizontal']);
 
     useEffect(() => {
@@ -30,19 +30,13 @@ export const Collage: FC<CollageProps> = ({ isMobile, photos, onFirstImageLoad }
         return () => clearInterval(interval);
     }, []);
 
-    let firstImageLoaded = false;
-    const onImageLoad = () => {
-        !firstImageLoaded && onFirstImageLoad();
-        firstImageLoaded = true;
-    };
-
     return (
         <div className={styles.collage}>
             {images.slice(-2).map((src, i) => (
                 <Picture src={`/photos/home/${isMobile ? 'vertical' : 'horizontal'}/${src}.jpg`} imgCls={styles.img}
-                         key={src} onLoad={onImageLoad} lazy={i === 0}/>
+                         key={src} onLoad={() => window.dispatchEvent(new Event('resize'))} lazy={i === 0}/>
             ))}
-            <ArrowIcon cls={styles.arrow} size={20}/>
+            <ArrowIcon cls={styles.arrow} size={20} style={{ top: arrowTop - 30 }}/>
         </div>
     );
-};
+});
