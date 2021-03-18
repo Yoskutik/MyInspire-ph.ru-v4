@@ -4,7 +4,7 @@ const fs = require('fs');
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
 module.exports = phase => {
-    const telegramBotToken = fs.readFileSync(path.resolve(os.homedir(), 'telegram', 'token.txt'));
+    const telegramBotToken = fs.readFileSync(path.resolve(os.homedir(), 'telegram', 'token.txt'), 'utf-8');
 
     return {
         trailingSlash: true,

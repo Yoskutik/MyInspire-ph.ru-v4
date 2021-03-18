@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { NotificationBot } from '@utils/NotificationBot';
 
-const bot = new NotificationBot();
-
 export default function sendMail(req: NextApiRequest, res: NextApiResponse): void {
     const data = JSON.parse(req.body);
     let message = `Новое сообщение от "${data.name.trim()}":\r\n`;
@@ -11,7 +9,7 @@ export default function sendMail(req: NextApiRequest, res: NextApiResponse): voi
     message += `--------------------
 ${data.message}
 `;
-    bot.sendToAll(message)
+    new NotificationBot().sendToAll(message)
         .then(() => res.status(200).json({ success: true }))
         .catch(e => res.status(410).json({ success: false, message: e.code }));
 }
