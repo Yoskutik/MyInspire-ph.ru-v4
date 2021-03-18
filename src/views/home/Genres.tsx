@@ -12,7 +12,7 @@ interface GenreProps {
 
 const Genre: FC<GenreProps> = ({ imgSrc, paragraphs, title }) => (
     <Container cls={styles.genres__container}>
-        <div className={styles.genres__genre}>
+        <div className={styles.genres__genre} id={title.replace(/ /g, '-')}>
             <div className={styles.genres__container_photo}>
                 <Picture src={imgSrc}/>
             </div>

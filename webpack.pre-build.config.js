@@ -9,14 +9,13 @@ const glob = require('glob');
 const { Bar, Presets } = require('cli-progress');
 
 module.exports = async () => {
-    console.info('Starting pre building process.');
+    console.log('Starting pre building process.');
     const pages = glob.sync('./pages/**/*')
         .map(it => it
             .replace(/index\.tsx$/, '')
             .replace(/\.tsx$/, '')
             .replace('./pages', '')
-            .replace(/\/?(\w$)/, '$1/')
-        )
+            .replace(/\/?(\w$)/, '$1/'))
         .filter(it => !['/_app/', '/_document/', '/404/'].includes(it))
         .filter(it => !it.startsWith('/api/'))
         .filter(it => !it.includes('[') && !it.includes(']'))
@@ -63,9 +62,9 @@ module.exports = async () => {
             }),
             new SitemapPlugin({
                 base: 'https://myinspire-ph.ru',
-                paths: pages.filter(path => !path.includes('/extra/')).map(path => ({
-                    path,
-                    priority: 0.8 ** (path.split('/').length - 2),
+                paths: pages.filter(p => !p.includes('/extra/')).map(p => ({
+                    path: p,
+                    priority: 0.8 ** (p.split('/').length - 2),
                     changefreq: 'monthly',
                 })).sort(),
                 options: {

@@ -27,5 +27,15 @@ export const Home: FC<HomeProps> = ({ isMobile, photos }) => {
         <Collage isMobile={isMobile} photos={photos} arrowTop={infoMargin}/>
         <Info marginTop={infoMargin}/>
         <Genres/>
+        <style jsx global>{`
+            a {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+            
+            a:hover {
+                opacity: 0.7;
+            }
+        `}</style>
     </>;
 };
