@@ -8,7 +8,7 @@ export class NotificationBot extends TelegramBot {
     private readonly userIds: Set<number>;
 
     constructor() {
-        super(serverRuntimeConfig.telegram.token, { polling: true });
+        super(serverRuntimeConfig.telegram.token);
         try {
             this.userIds = new Set(JSON.parse(fs.readFileSync(serverRuntimeConfig.telegram.usersFile, 'utf-8')));
         } catch {

@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
                     <meta httpEquiv="Content-Type" content="text/html; charset=utf-8"/>
                     <meta property="og:title" content="Мельникова Татьяна"/>
                     <meta property="og:description" content="Профессиональный фотограф в Санкт-Петербурге"/>
-                    <meta property="og:image" content="https://myinspire-ph.ru/assets/photos/ava-500x500.jpg"/>
+                    <meta property="og:image" content="https://myinspire-ph.ru/photos/ava-500x500.jpg"/>
                     <meta property="og:image:type" content="image/jpg" />
                     <meta property="og:image:width" content="500" />
                     <meta property="og:image:height" content="500" />
