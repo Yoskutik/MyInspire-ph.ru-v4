@@ -16,7 +16,7 @@ export class FetchRequest {
     private readonly baseUrl: string;
 
     constructor({ url, method = 'POST', params = {} }: FetchRequestProps) {
-        this.baseUrl = typeof window === 'undefined' ? '' : 'http://localhost:3000';
+        this.baseUrl = typeof window === 'undefined' ? 'http://localhost:8080' : '';
         this.url = `/api${url}`;
         this.method = method;
         if (params instanceof FormData) {
