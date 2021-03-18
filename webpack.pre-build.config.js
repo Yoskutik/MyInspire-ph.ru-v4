@@ -1,14 +1,15 @@
-/* eslint-disable */
+/* eslint-disable @typescript-eslint/no-var-requires */
+const fs = require('fs');
+const path = require('path');
 const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const imagemin = require('imagemin');
 const imageminWebp = require('imagemin-webp');
 const glob = require('glob');
-const fs = require('fs');
-const path = require('path');
+const { Bar, Presets } = require('cli-progress');
 
 module.exports = async () => {
-    console.log('Starting pre building process');
+    console.info('Starting pre building process.');
     const pages = glob.sync('./pages/**/*')
         .map(it => it
             .replace(/index\.tsx$/, '')
@@ -22,13 +23,18 @@ module.exports = async () => {
         .filter((value, index, self) => self.indexOf(value) === index);
     console.log(`Found ${pages.length} pages total.`);
 
-    const files = await imagemin(['public/photos/**/*.jpg'], {
-        plugins: [ imageminWebp({ quality: 85 }) ],
-    });
-    console.log(`${files.length} JPG images are compiled into WEBP format.`);
-    files.forEach(file => {
-        fs.writeFileSync(`${file.sourcePath}.webp`, file.data, { flag: 'w' });
-    });
+    const jpgImages = glob.sync('public/photos/**/*.jpg');
+    const bar = new Bar({}, Presets.shades_classic);
+
+    console.log('Converting JPG to WEBP:');
+    bar.start(jpgImages.length, 1);
+    for (let i = 0; i < jpgImages.length; i++) {
+        // eslint-disable-next-line no-await-in-loop
+        const webp = (await imagemin([jpgImages[i]], { plugins: [imageminWebp({ quality: 85 })] }))[0];
+        fs.writeFileSync(`${webp.sourcePath}.webp`, webp.data, { flag: 'w' });
+        bar.update(i);
+    }
+    bar.stop();
 
     fs.rmdirSync(`${__dirname}/.next`, { recursive: true });
 
