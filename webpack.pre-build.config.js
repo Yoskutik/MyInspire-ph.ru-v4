@@ -26,7 +26,7 @@ module.exports = async () => {
     const bar = new Bar({}, Presets.shades_classic);
 
     console.log('Converting JPG to WEBP:');
-    bar.start(jpgImages.length, 1);
+    bar.start(jpgImages.length - 1, 0);
     for (let i = 0; i < jpgImages.length; i++) {
         // eslint-disable-next-line no-await-in-loop
         const webp = (await imagemin([jpgImages[i]], { plugins: [imageminWebp({ quality: 85 })] }))[0];

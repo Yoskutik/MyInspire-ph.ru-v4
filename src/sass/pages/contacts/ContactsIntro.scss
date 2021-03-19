@@ -13,9 +13,13 @@
   }
 
   &__text {
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 75%;
     display: flex;
 
     p {
+      box-sizing: border-box;
       text-align: justify;
       text-indent: 2rem;
       font-size: 1rem;
@@ -24,7 +28,7 @@
     }
 
     @media screen and (max-width: $page-size-m) {
-      flex-wrap: wrap;
+      max-width: initial;
       padding: 0 20px;
 
       p {

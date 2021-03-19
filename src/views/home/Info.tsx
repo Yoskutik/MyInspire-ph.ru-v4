@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useEffect } from 'react';
 import Link from 'next/link';
 import { Container, Picture } from '@components';
 import { InstagramIcon, VKIcon, WhatsAppIcon } from '@components/icons';
@@ -60,18 +60,25 @@ const Message: FC = () => (
             его частью.
         </p>
         <p>
-            {'Со всеми моими работами в высоком разрешении можно ознакомиться по '}
+            Со всеми моими работами в высоком разрешении можно ознакомиться по
+            {' '}
             <Link href="/portfolio/"><a>ссылке</a></Link>
             .
         </p>
     </div>
 );
 
-export const Info: FC<{ marginTop: number }> = memo(({ marginTop }) => (
-    <div className={styles.info} style={{ marginTop }}>
-        <Container cls={styles.info__container}>
-            <Message />
-            <Card />
-        </Container>
-    </div>
-));
+export const Info: FC<{ marginTop: number }> = memo(({ marginTop }) => {
+    useEffect(() => {
+        window.dispatchEvent(new Event('resize'));
+    }, []);
+
+    return (
+        <div className={styles.info} style={{ marginTop }}>
+            <Container cls={styles.info__container}>
+                <Message />
+                <Card />
+            </Container>
+        </div>
+    );
+});
