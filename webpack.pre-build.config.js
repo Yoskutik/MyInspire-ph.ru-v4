@@ -8,6 +8,7 @@ const imageminWebp = require('imagemin-webp');
 const glob = require('glob');
 const colors = require('colors');
 const { Bar, Presets } = require('cli-progress');
+const blogs = require('./src/data/blog.json');
 
 module.exports = async () => {
     const pages = glob.sync('./pages/**/*')
@@ -45,6 +46,18 @@ module.exports = async () => {
 
     fs.rmdirSync(`${__dirname}/.next`, { recursive: true });
 
+    const sitemapPaths = pages.filter(p => !p.includes('/extra/')).sort().map(p => ({
+        path: p,
+        priority: 0.8 ** (p.split('/').length - 2),
+        changefreq: 'monthly',
+    }));
+    sitemapPaths.push(...blogs.map(it => ({
+        path: `/blog/${it.title.replace(/ /g, '-')}`,
+        priority: 0.2,
+        lastmod: '2021-03-20T12:00:00.000Z',
+        changefreq: 'never',
+    })));
+
     return {
         entry: {},
         mode: 'production',
@@ -70,11 +83,7 @@ module.exports = async () => {
             }),
             new SitemapPlugin({
                 base: 'https://myinspire-ph.ru',
-                paths: pages.filter(p => !p.includes('/extra/')).map(p => ({
-                    path: p,
-                    priority: 0.8 ** (p.split('/').length - 2),
-                    changefreq: 'monthly',
-                })).sort(),
+                paths: sitemapPaths,
                 options: {
                     changefreq: 'monthly',
                     skipgzip: true,
