@@ -17,9 +17,12 @@ const Pose: FC<PoseProps> = ({ imgSrc, title, children }) => (
     </div>
 );
 
+const description = 'Не надо смущаться, если освоить позирование на съёмке Вам пока не удалось. Прочитав эту шпаргалку '
+    + 'Вам будет проще ориентироваться в своих движениях на фотосессии.';
+
 export default function ExtraPosesPage(): JSX.Element {
     return (
-        <MainLayout title="Шпаргалка по позированию" robots={false}>
+        <MainLayout title="Мельникова Татьяна | Шпаргалка по позированию" description={description} robots={false}>
             <Breadcrumbs/>
             <Container>
                 <Pose imgSrc="/photos/extra/poses/0.jpg" title="Позирование стоя">

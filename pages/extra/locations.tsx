@@ -1,12 +1,15 @@
 import React, { FC } from 'react';
 import { GetServerSideProps } from 'next';
+import { Breadcrumbs, Container, MainLayout } from '@components';
 import { getPhotos } from '@utils/server';
 import { Location } from '@views/extra/Location';
 import locations from '@data/locations.json';
-import { Breadcrumbs, Container, MainLayout } from '@components';
+
+const description = 'Найдите для себя наилучший маршрут по Питеру для фотопрогулки. Посмотрите на подборку локаций '
+    + 'в центре и не только, оцените их длительность, и подходят ли Вам такие фоны';
 
 const ExtraLocationsPage: FC<{ images: string[] }> = ({ images }) => (
-    <MainLayout title="Локации для фотосессии" robots={false}>
+    <MainLayout title="Мельникова Татьяна | Подборка локаций для фотосессии" description={description} robots={false}>
         <Breadcrumbs/>
         <Container>
             {locations.map(loc => (

@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { GetServerSideProps } from 'next';
+import { MainLayout } from '@components';
 import { Portfolio, PortfolioProps } from '@views/portfolio';
 import { getPhotos } from '@utils/server';
-import { MainLayout } from '@components';
 
 const title = 'Мельникова Татьяна | Портфолио';
 const description = 'Лавстори, фотопрогулка, студийная фотосессия и профессиональная ретушь. Здесь находится мое '

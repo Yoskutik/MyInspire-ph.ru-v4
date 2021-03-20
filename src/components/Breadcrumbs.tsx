@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC, Fragment, memo } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '@sass/components/Breadcrumbs.module.scss';
@@ -21,7 +21,7 @@ const hrefToName: Record<string, ILink> = {
     blog: { title: 'Блог', path: '/blog/' },
 };
 
-export const Breadcrumbs: FC = () => {
+export const Breadcrumbs: FC = memo(() => {
     const router = useRouter();
 
     return (
@@ -45,4 +45,4 @@ export const Breadcrumbs: FC = () => {
             </Container>
         </div>
     );
-};
+});

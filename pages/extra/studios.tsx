@@ -1,10 +1,13 @@
 import React, { FC, useState } from 'react';
 import { GetServerSideProps } from 'next';
+import { Breadcrumbs, Container, MainLayout } from '@components';
 import { Filters, IFilters, Hall } from '@views/extra/studios';
 import studios from '@data/studios.json';
 import hals from '@data/halls.json';
 import { getPhotos } from '@utils/server';
-import { Breadcrumbs, Container, MainLayout } from '@components';
+
+const description = 'Посмотрите на подборку проверенных студий в Санкт-Петербурге, отфильтруйте их по стоимости, общему'
+    + ' тону и наличию мебели, и найдите подходящую для Вас.';
 
 const ExtraStudiosPage: FC<{ images: string[] }> = ({ images }) => {
     const [filters, setFilters] = useState<IFilters>({
@@ -22,7 +25,7 @@ const ExtraStudiosPage: FC<{ images: string[] }> = ({ images }) => {
     });
 
     return (
-        <MainLayout title="Проверенные студии" robots={false}>
+        <MainLayout title="Мельникова Татьяна | Подборка проверенных студий" description={description} robots={false}>
             <Breadcrumbs/>
             <Container>
                 <Filters filters={filters} onChange={setFilters} />

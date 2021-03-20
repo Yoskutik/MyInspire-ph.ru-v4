@@ -3,9 +3,12 @@ import Link from 'next/link';
 import { Breadcrumbs, MainLayout } from '@components';
 import styles from '@sass/pages/extra/Extra.module.scss';
 
+const description = 'Здесь Вы сможете подобрать для себя подходящую студию, составить наилучший маршрут для '
+    + 'фотопрогулки, найти себе проверенного мной визажиста или посмотреть как себя себя вести при позировании.';
+
 export default function ExtraPage(): JSX.Element {
     return (
-        <MainLayout title="Фотограф в Санкт-Петербурге | Мельникова Татьяна" robots={false}>
+        <MainLayout title="Фотограф в Санкт-Петербурге | Мельникова Татьяна" description={description} robots={false}>
             <Breadcrumbs/>
             <div className={styles.block}>
                 <nav className={styles.nav}>

@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { GetServerSideProps } from 'next';
+import { MainLayout } from '@components';
 import { Home, HomeProps } from '@views/home';
 import { getPhotos } from '@utils/server';
-import { MainLayout } from '@components';
 
 const title = 'Фотограф в Санкт-Петербурге | Мельникова Татьяна';
-const description = `Атмосферные фото в Санкт-Петербурге от профессионального фотографа. Экспресс фотосессия от 3000 ₽.
-Студийные фотосессии и фотопроуглки.`;
+const description = 'Атмосферные фото в Санкт-Петербурге от профессионального фотографа. Экспресс фотосессия от ' +
+    '3000 ₽. Студийные фотосессии и фотопроуглки.';
 const keywords = 'Фотограф Санкт-Петербург, Мельникова Татьяна, Фотограф СПб, Фотосессия СПб';
 
 const HomePage: FC<HomeProps> = ({ isMobile, photos }) => (

@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { GetServerSideProps } from 'next';
+import { Breadcrumbs, Container, MainLayout } from '@components';
 import {
     BlogBodyParser, BlogInfo, BlogKeywords, IBlogInfo, IBlogItem, SearchField,
 } from '@views/blog';
 import blog from '@data/blog.json';
 import { addPostVisitor } from '@utils/server';
-import { Breadcrumbs, Container, MainLayout } from '@components';
 import styles from '@sass/pages/blog/Post.module.scss';
 
 const title = 'Мельникова Татьяна | Личный блог | ';

@@ -28,9 +28,13 @@ const Stylist: FC<StylistsProps> = ({ name, type, username }) => (
     </div>
 );
 
+const description = 'Здесь находится небольшая подборка проверенных стилистов и визажистов. Вам точно понравятся эти '
+    + 'девочки';
+
 export default function ExtraStylistsPage(): JSX.Element {
     return (
-        <MainLayout title="Стилисты и визажисты" robots={false}>
+        <MainLayout title="Мельникова Татьяна | Подборка стилистов и визажистов" description={description}
+                    robots={false}>
             <Breadcrumbs/>
             <Container>
                 <p className={styles.intro}>
