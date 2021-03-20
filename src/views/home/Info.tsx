@@ -68,17 +68,11 @@ const Message: FC = () => (
     </div>
 );
 
-export const Info: FC<{ marginTop: number }> = memo(({ marginTop }) => {
-    useEffect(() => {
-        window.dispatchEvent(new Event('resize'));
-    }, []);
-
-    return (
-        <div className={styles.info} style={{ marginTop }}>
-            <Container cls={styles.info__container}>
-                <Message />
-                <Card />
-            </Container>
-        </div>
-    );
-});
+export const Info: FC<{ marginTop: number }> = memo(({ marginTop }) => (
+    <div className={styles.info} style={{ marginTop }}>
+        <Container cls={styles.info__container}>
+            <Message />
+            <Card />
+        </Container>
+    </div>
+));

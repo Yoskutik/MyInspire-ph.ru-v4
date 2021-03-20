@@ -6,15 +6,12 @@ import styles from '@sass/pages/home/Collage.module.scss';
 
 export interface CollageProps {
     isMobile: boolean;
-    photos: {
-        vertical: string[];
-        horizontal: string[];
-    };
+    photos: string[];
     arrowTop: number;
 }
 
 export const Collage: FC<CollageProps> = memo(({ isMobile, photos, arrowTop }) => {
-    const [images, setImages] = useState(photos[isMobile ? 'vertical' : 'horizontal']);
+    const [images, setImages] = useState(photos);
 
     useEffect(() => {
         if (!isMobile) return null;

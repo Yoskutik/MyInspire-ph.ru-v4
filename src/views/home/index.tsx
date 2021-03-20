@@ -1,26 +1,22 @@
 import React, { FC, useState } from 'react';
 import { $, debounce, useEventListener } from '@utils';
 import headerStyles from '@sass/mainLayout/Header.module.scss';
-import collageStyles from '@sass/pages/home/Collage.module.scss';
 import { Genres } from './Genres';
 import { Collage } from './Collage';
 import { Info } from './Info';
 
 export interface HomeProps {
     isMobile: boolean;
-    photos: {
-        vertical: string[];
-        horizontal: string[];
-    };
+    photos: string[];
+    size: [number, number];
 }
 
-export const Home: FC<HomeProps> = ({ isMobile, photos }) => {
-    const [infoMargin, setInfoMargin] = useState(0);
+export const Home: FC<HomeProps> = ({ isMobile, photos, size }) => {
+    const [infoMargin, setInfoMargin] = useState<number>();
 
     useEventListener(globalThis, 'resize', debounce(() => {
-        const imgBottom = $(`.${collageStyles.img}`).getBoundingClientRect().height;
         const headerBottom = $(`.${headerStyles.header}`).getBoundingClientRect().height;
-        setInfoMargin(imgBottom - headerBottom);
+        setInfoMargin((window.innerWidth / size[0]) * size[1] - headerBottom);
     }, 5));
 
     return <>
