@@ -38,6 +38,23 @@ export const MainLayout: FC<MainLayoutProps> = ({
             {description && <meta name="description" content={description}/>}
             {keywords && <meta name="keywords" content={keywords}/>}
             {canonical && <link rel="canonical" href={`https://MyInspire-ph.ru${canonical}`}/>}
+
+            <meta property="og:title" content={title}/>
+            <meta property="og:description" content={description}/>
+            <meta property="og:image" content="https://myinspire-ph.ru/photos/og/0.jpg"/>
+            <meta property="og:image:type" content="image/jpg" />
+            <meta property="og:image:width" content="1528" />
+            <meta property="og:image:height" content="800" />
+            <meta property="og:type" content="website"/>
+            <meta property="og:url" content="https://myinspire-ph.ru/"/>
+            <meta property="og:locale" content="ru_RU"/>
+
+            <meta name="twitter:card" content="summary"/>
+            <meta name="twitter:creator" content="@myinspire_ph"/>
+            <meta name="twitter:title" content={title}/>
+            <meta name="twitter:description" content={description}/>
+            <meta name="twitter:image" content="https://myinspire-ph.ru/photos/ava.jpg"/>
+            <meta name="twitter:url" content="https://myinspire-ph.ru/"/>
         </Head>
         <Header/>
         {isSpinnerVisible ? (

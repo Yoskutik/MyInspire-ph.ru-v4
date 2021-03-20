@@ -15,6 +15,7 @@ const footerBlockContacts: ILink[] = [
     { title: 'Pinterest', href: 'https://www.pinterest.ru/tatianamix1910/' },
     { title: 'Facebook', href: 'https://www.facebook.com/profile.php?id=100029685607190' },
     { title: 'E-mail', href: 'mailto:tatiana.mix.1910@gmail.com' },
+    { title: 'Twitter', href: 'https://twitter.com/myinspire_ph' },
 ];
 
 const footerBlockDeveloper: ILink[] = [

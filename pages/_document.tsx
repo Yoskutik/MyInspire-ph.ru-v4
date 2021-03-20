@@ -15,15 +15,7 @@ export default class MyDocument extends Document {
                 <Head>
                     <meta charSet="utf-8"/>
                     <meta httpEquiv="Content-Type" content="text/html; charset=utf-8"/>
-                    <meta property="og:title" content="Мельникова Татьяна"/>
-                    <meta property="og:description" content="Профессиональный фотограф в Санкт-Петербурге"/>
-                    <meta property="og:image" content="https://myinspire-ph.ru/photos/og/0.jpg"/>
-                    <meta property="og:image:type" content="image/jpg" />
-                    <meta property="og:image:width" content="1528" />
-                    <meta property="og:image:height" content="800" />
-                    <meta property="og:type" content="website"/>
-                    <meta property="og:url" content="https://myinspire-ph.ru/"/>
-                    <meta property="og:locale" content="ru_RU"/>
+
                     <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
                     <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
                     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
@@ -46,6 +38,7 @@ export default class MyDocument extends Document {
                     <meta name="apple-mobile-web-app-capable" content="yes"/>
                     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
                     <meta name="apple-mobile-web-app-title" content="myinspire-ph.ru"/>
+
                     {!publicRuntimeConfig.dev && <>
                         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153171785-1"/>
                         <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-153171785-1');`}}/>
