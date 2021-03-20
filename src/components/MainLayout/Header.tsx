@@ -3,8 +3,9 @@ import React, {
 } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Container, MenuButton } from '@components';
 import styles from '@sass/mainLayout/Header.module.scss';
+import { Container } from '../Container';
+import { MenuButton } from '../MenuButton';
 
 const NavLink: FC<{ href: string, title: string, active: boolean }> = ({ href, title, active }) => (
     <Link href={href}>

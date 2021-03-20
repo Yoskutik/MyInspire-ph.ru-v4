@@ -1,10 +1,10 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
+import React, { FC, ReactNode, useEffect } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-import { Spinner } from '@components';
+import { useBooleanState } from '@utils';
+import { Spinner } from '../Spinner';
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { useBooleanState } from '@utils';
 
 interface MainLayoutProps {
     title: string;

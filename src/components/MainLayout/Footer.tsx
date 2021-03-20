@@ -1,6 +1,6 @@
 import React, { FC, Fragment, useState } from 'react';
-import { Container } from '@components';
 import styles from '@sass/mainLayout/Footer.module.scss';
+import { Container } from '../Container';
 
 export interface ILink {
     title: string,

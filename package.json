@@ -27,7 +27,6 @@
     ]
   },
   "devDependencies": {
-    "@types/multiparty": "^0.0.32",
     "@types/node-telegram-bot-api": "^0.51.1",
     "@types/react": "^17.0.3",
     "@types/react-toast-notifications": "^2.4.0",
@@ -52,6 +51,7 @@
   },
   "dependencies": {
     "cli-progress": "^3.9.0",
+    "colors": "^1.4.0",
     "favicons": "^6.2.1",
     "favicons-webpack-plugin": "^5.0.2",
     "glob": "^7.1.6",

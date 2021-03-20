@@ -6,10 +6,10 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const imagemin = require('imagemin');
 const imageminWebp = require('imagemin-webp');
 const glob = require('glob');
+const colors = require('colors');
 const { Bar, Presets } = require('cli-progress');
 
 module.exports = async () => {
-    console.log('Starting pre building process.');
     const pages = glob.sync('./pages/**/*')
         .map(it => it
             .replace(/index\.tsx$/, '')
@@ -20,12 +20,16 @@ module.exports = async () => {
         .filter(it => !it.startsWith('/api/'))
         .filter(it => !it.includes('[') && !it.includes(']'))
         .filter((value, index, self) => self.indexOf(value) === index);
-    console.log(`Found ${pages.length} pages total.`);
+    console.log(`${colors.cyan('info')}  - Found ${pages.length} pages total.`);
 
+    const now = new Date();
     const jpgImages = glob.sync('public/photos/**/*.jpg');
-    const bar = new Bar({}, Presets.shades_classic);
+    const bar = new Bar({
+        hideCursor: true,
+        clearOnComplete: true,
+    }, Presets.shades_classic);
 
-    console.log('Converting JPG to WEBP:');
+    console.log(`${colors.cyan('info')}  - Converting JPG to WEBP:`);
     bar.start(jpgImages.length, 0);
     for (let i = 0; i < jpgImages.length; i++) {
         // eslint-disable-next-line no-await-in-loop
@@ -34,6 +38,10 @@ module.exports = async () => {
         bar.update(i + 1);
     }
     bar.stop();
+    const elapsedTime = (new Date() - now) / 1000;
+    const ss = Math.round(elapsedTime % 60).toString().padStart(2, '0');
+    const mm = Math.round(elapsedTime / 60).toString().padStart(2, '0');
+    console.log(`${colors.cyan('info')}  - ${jpgImages.length} images converted into WEBP format in ${mm}:${ss}`);
 
     fs.rmdirSync(`${__dirname}/.next`, { recursive: true });
 
