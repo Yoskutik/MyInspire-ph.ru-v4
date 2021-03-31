@@ -26,6 +26,10 @@
       "git add"
     ]
   },
+  "browserslist": [
+    "last 5 versions",
+    "> 1%"
+  ],
   "devDependencies": {
     "@types/node-telegram-bot-api": "^0.51.1",
     "@types/react": "^17.0.3",

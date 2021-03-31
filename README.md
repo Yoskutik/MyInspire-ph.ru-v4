@@ -1,33 +1,58 @@
 # MyInspire-ph.ru
 
 ![](https://img.shields.io/badge/TypeScript-444?logo=typescript&logoColor=f0f0f0)
-![](https://img.shields.io/badge/JavaScript-444?logo=javascript&logoColor=f0f0f0)
 ![](https://img.shields.io/badge/React-444?logo=react&logoColor=f0f0f0)
+![](https://img.shields.io/badge/NextJS-444?logo=next.js&logoColor=f0f0f0)
+![](https://img.shields.io/badge/NodeJS-444?logo=node.js&logoColor=f0f0f0)
 ![](https://img.shields.io/badge/Github%20Actions-444?logo=github&logoColor=f0f0f0)
 ![](https://img.shields.io/badge/SCSS-444?logo=sass&logoColor=f0f0f0)
 ![](https://img.shields.io/badge/ESLint-444?logo=eslint&logoColor=f0f0f0)
 ![](https://img.shields.io/badge/Stylelint-444?logo=stylelint&logoColor=f0f0f0)
 ![](https://img.shields.io/badge/Nginx-444?logo=nginx&logoColor=f0f0f0)
-![](https://img.shields.io/badge/NodeJS-444?logo=node.js&logoColor=f0f0f0)
-![](https://img.shields.io/badge/NextJS-444?logo=next.js&logoColor=f0f0f0)
 
 ![](https://img.shields.io/lgtm/grade/javascript/github/Yoskutik/MyInspire-ph.ru-RTS?label=Code%20quality)
 ![](https://img.shields.io/lgtm/alerts/github/Yoskutik/MyInspire-ph.ru-RTS?label=Vulnerabilities)
 ![](https://github.com/yoskutik/MyInspire-ph.ru-RTS/workflows/Testing/badge.svg)
 
 
-Наверное, я уже слишком далеко зашел в создании этого [сайта](https://myinspire-ph.ru) и навряд 
-ли я когда-либо ещё буду выкладывать настолько замороченные проекты. Надеюсь, кому-то этот 
-проект может показаться интересным или даже полезным (в таком случае поставьте плез звездочку).
-
 <details open>
-  <summary><b>Процесс разработки</b></summary>
+  <summary><b>Использованные технологии</b></summary>
+  <br>
+  <ul>
+    <li><i>TypeScript</i></li>
+    <li><i>React.js</i></li>
+    <li><i>Next.js</i></li>
+    <li><i>SCSS</i></li>
+    <li><i>Eslint</i></li>
+    <li><i>Stylelint</i></li>
+    <li><i>GitHub Actions</i> для CI/CD и нотификации</li>
+    Технологии для повышения индексации:
+    <ul>
+      <li><i>Schema.org</i> - микроразметка</li>
+      <li><i>LD-JSON</i> - микроразметка</li>
+      <li><i>Open Graph</i> - отображение ссылки в соц. сетях</li>
+      <li><i>Twitter Cards</i> - отображение ссылки в соц. сетях</li>
+    </ul>
+  </ul>
+</details>
+
+<details>
+  <summary><b>Front-end разработка</b></summary>
   <br/>
   <p>
-    Вся разработка ведётся исключительно на <i>TypeScript</i>. На чистом <i>JavaScript</i>
-    написана только конфигурация <i>WebPack</i>. Любой возможный код на <i>HTML</i> 
-    минимизирован и включает в себя только статические мета-данные и подключение основного
-    скрипта и Google аналитики. 
+    Вся разработка введётся на <i>TypeScript</i> и <i>ReactJS</i>. Все стили написаны на языке
+    <i>SASS</i>. В проекте есть проверка кода на соответствие стилям <code>.ts</code> и <code>.
+    scss</code> файлов. Проверка <code>.ts</code> файлов осуществляется с помощью <i>ESLint</i>
+    и качестве основных правил был взят набор от <i>AirBnb</i>. Проверка <code>.scss</code> 
+    осуществляется с помощью <i>Stylelint</i> и рекомендованного им же набора правил. 
+  </p>
+  <p>
+    При каждой сборке происходит автоматическая конвертация <code>.jpg</code> файлов в 
+    <code>.webp</code>, генерация <code>sitemap.xml</code> с обновленными датами, генерация
+    <code>favicon</code> для различных Android и iOS устройств и минификация при сборке в 
+    версии production. При коммите происходит проверка на соответствие стилям и обновление 
+    версии в <code>package.json</code>. Для этого используются пакеты <i>Husky</i> и
+    <i>Lint-staged</i>.
   </p>
   <p>
     Все компоненты написаны на <i>React</i>, причём на каждый компонент отводится отдельная
@@ -46,20 +71,6 @@
     необходим для компонентного подхода. 
   </p>
   <p>
-    В проекте есть проверка кода на соответствие стилям <code>.ts</code> и <code>.scss</code>
-    файлов. Проверка <code>.ts</code> файлов осуществляется с помощью <i>ESLint</i> и качестве
-    основных правил был взят набор от <i>AirBnb</i>. Проверка <code>.scss</code> осуществляется
-    с помощью <i>Stylelint</i> и рекомендованного им же набора правил. 
-  </p>
-  <p>
-    При каждой сборке происходит автоматическая конвертация <code>.jpg</code> файлов в 
-    <code>.webp</code>, генерация <code>sitemap.xml</code> с обновленными датами, генерация
-    <code>favicon</code> для различных Android и iOS устройств и минификация при сборке в 
-    версии production. При коммите происходит проверка на соответствие стилям и обновление 
-    версии в <code>package.json</code>. Для этого используются пакеты <i>Husky</i> и
-    <i>Lint-staged</i>.
-  </p>
-  <p>
     В проекте <b>ЕСТЬ</b> CI/CD. И достигнуто оно с помощью <i>GitHub Actions</i>. При пуше или
     при мерже веток в мастер происходит автоматическая проверка на соответствие стилям, сборка,
     деплой на FTP сервер и автоматическая нотификация в Telegram о статусе (успешно, ошибка) 
@@ -74,24 +85,6 @@
     сборка, деплой на FTP сервер сайта и в самом конце в Telegram приходит уведомление о
     статусе сборки и деплоя.
   </p>
-</details>
-
-<details>
-  <summary><b>Использованные технологии</b></summary>
-  <br>
-  <ul>
-    <li><i>TypeScript</i></li>
-    <li><i>React.js</i></li>
-    <li><i>Webpack</i></li>
-    <li><i>Eslint</i></li>
-    <li><i>Stylelint</i></li>
-    <li><i>SCSS</i></li>
-    <li><i>Schema.org</i> - микроразметка (для улучшения индексирования)</li>
-    <li><i>LD-JSON</i> - микроразметка (для улучшения индексирования)</li>
-    <li><i>Open Graph</i> - отображение ссылки в соц. сетях (для улучшения индексирования)</li>
-    <li><i>GitHub Actions</i> для CI/CD и нотификации</li>
-    <li><i>PHP</i></li>
-  </ul>
 </details>
 
 <details>
