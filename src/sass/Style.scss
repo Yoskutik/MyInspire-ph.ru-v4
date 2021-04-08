@@ -26,10 +26,12 @@ body {
   height: 100%;
   margin: 0;
 
-  & > div {
-    flex-direction: column;
-    display: flex;
-    height: 100%;
+  #__next {
+    // TODO
+    height: calc(100% - 3.3rem - 87px);
+    //flex-direction: column;
+    //display: flex;
+    //height: 100%;
   }
 }
 
