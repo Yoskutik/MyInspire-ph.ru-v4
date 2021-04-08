@@ -26,7 +26,7 @@
       "git add"
     ]
   },
-  "browserslist": ["defaults", "Safari > 4", "not IE 11"],
+  "browserslist": ["defaults", "since 2012", "not IE 11"],
   "devDependencies": {
     "@types/node-telegram-bot-api": "^0.51.1",
     "@types/react": "^17.0.3",
