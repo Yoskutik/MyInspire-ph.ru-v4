@@ -30,7 +30,11 @@ const ListItem: FC<ListItemProps> = ({ title, description, price, additional, di
             )}
         </p>
         <div className={styles['list__item_price-column']}>
-            <strong className={`${styles.list__item_price} ${discount ? styles.discount : ''}`}>{price}</strong>
+            <strong className={`${styles.list__item_price} ${discount ? styles.discount : ''}`}>
+                {price}
+                {/*{`${price} `}*/}
+                {/*<RubbleIcon height="100%" width="0.8rem"/>*/}
+            </strong>
             {discount && (
                 <strong className={styles.list__item_price}>
                     <span>{discount}</span>

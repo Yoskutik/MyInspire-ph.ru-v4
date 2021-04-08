@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  font-family: Gotham, Arial, sans-serif;
+  font-family: "Gotham Custom", Arial, sans-serif;
   flex-direction: column;
   color: $main_color;
   font-size: 1rem;
@@ -77,5 +77,5 @@ a {
 @font-face {
   src: url(/Gotham.otf);
   font-display: fallback;
-  font-family: Gotham;
+  font-family: "Gotham Custom";
 }
