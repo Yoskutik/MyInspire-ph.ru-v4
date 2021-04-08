@@ -43,6 +43,11 @@
     &_price {
       font-size: 1rem;
 
+      &:after {
+        font-weight: normal;
+        content: ' ₽';
+      }
+
       & > span {
         align-items: center;
         display: flex;

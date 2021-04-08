@@ -60,9 +60,9 @@ export const MainLayout: FC<MainLayoutProps> = ({
         {isSpinnerVisible ? (
             <Spinner className="page__loading-spinner" size={96}/>
         ) : (
-            <main className="page">
+            <div className="page">
                 {children}
-            </main>
+            </div>
         )}
         <div style={styleFlex}/>
         <Footer/>

@@ -18,7 +18,7 @@ html {
 }
 
 body {
-  font-family: Gotham, sans-serif;
+  font-family: Gotham, Arial, sans-serif;
   flex-direction: column;
   color: $main_color;
   font-size: 1rem;
@@ -35,7 +35,6 @@ body {
 
 
 .page {
-  font-family: Gotham, sans-serif;
   flex-direction: column;
   color: $main_color;
   font-size: 1rem;
@@ -48,7 +47,6 @@ body {
 }
 
 button {
-  font-family: Gotham, sans-serif;
   cursor: pointer;
 
   &:focus {
