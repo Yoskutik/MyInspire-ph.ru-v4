@@ -17,7 +17,7 @@ export const Alert: FC<AlertProps> = ({ type, expiredAt, children, cls = '', sty
 
     return <>
         {!cantShow && (
-            <Container cls={`${styles.alert} ${styles[`alert--${type}`]} ${cls}`}>
+            <Container cls={`${styles.alert} ${styles[`alert--${type}`]} ${cls}`} style={style}>
                 {children}
                 <CloseButton cls={styles.close} onClick={() => setClosed(true)}/>
                 {onInfoClick && (

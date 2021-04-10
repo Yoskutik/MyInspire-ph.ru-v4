@@ -48,11 +48,6 @@
         content: ' ₽';
       }
 
-      & > span {
-        align-items: center;
-        display: flex;
-      }
-
       &.discount {
         text-decoration: line-through;
         opacity: 0.7;

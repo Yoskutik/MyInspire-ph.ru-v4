@@ -6,6 +6,6 @@ interface CloseButtonProps {
     onClick: () => void;
 }
 
-export const CloseButton: FC<CloseButtonProps> = ({ cls, onClick }) => (
-    <button className={`${styles.closeButton} ${cls || ''}`} onClick={onClick}>×</button>
+export const CloseButton: FC<CloseButtonProps> = ({ cls = '', onClick }) => (
+    <button className={`${styles.button} ${cls}`} onClick={onClick}>×</button>
 );
