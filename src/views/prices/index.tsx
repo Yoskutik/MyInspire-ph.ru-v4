@@ -44,8 +44,8 @@ const ListItem: FC<ListItemProps> = ({ title, description, price, additional, di
 
 const PriceList: FC = () => (
     <Container cls={styles.list}>
-        <Alert type="info" expiredAt={createDate(15, 4, 2021)} style={{ width: '100%', margin: '0.5rem' }}>
-            {'При бронировании до 15 апреля любых дат весны-лета 2021 скидка на "Фотопрогулку mini"'}
+        <Alert type="info" expiredAt={createDate(10, 6, 2021)} style={{ width: '100%', margin: '0.5rem' }}>
+            Скидки действительны при бронировании любой свободной летней даты до 10 июня
         </Alert>
         {listItems.slice(0, 4).map((item, i) => (
             <ListItem key={`list-item-${i}`} {...item}/>
