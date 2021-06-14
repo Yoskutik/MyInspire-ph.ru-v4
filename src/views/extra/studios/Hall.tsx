@@ -31,7 +31,7 @@ interface HallProps extends InfoProps {
     studio: string;
 }
 
-const Preview: FC<{photos: string[]}> = ({ photos }) => {
+const Preview: FC<{ photos: string[] }> = ({ photos }) => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
@@ -43,7 +43,7 @@ const Preview: FC<{photos: string[]}> = ({ photos }) => {
                     {photos.map((photo, i) => (
                         <Picture alt="Фотография зала" onClick={() => setActiveIndex(i)} key={photo}
                                  src={`/photos/extra/studios/${photo}.jpg`}
-                                 imgCls={`${styles['hall__preview_small-image']} ${i === activeIndex ? 'active' : ''}`}/>
+                                 imgCls={`${styles['hall__preview_small-image']} ${i === activeIndex ? styles.active : ''}`}/>
                     ))}
                 </div>
             )}

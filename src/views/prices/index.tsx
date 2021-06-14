@@ -1,9 +1,8 @@
 import React, { FC, Fragment } from 'react';
-import { Alert, Container } from '@components';
+import { Container } from '@components';
 import conditions from '@data/conditions.json';
 import listItems from '@data/priceList.json';
 import styles from '@sass/pages/prices/Prices.module.scss';
-import { createDate } from '@utils';
 
 interface ListItemProps {
     title: string;
@@ -44,9 +43,9 @@ const ListItem: FC<ListItemProps> = ({ title, description, price, additional, di
 
 const PriceList: FC = () => (
     <Container cls={styles.list}>
-        <Alert type="info" expiredAt={createDate(10, 6, 2021)} style={{ width: '100%', margin: '0.5rem' }}>
-            Скидки действительны при бронировании любой свободной летней даты до 10 июня
-        </Alert>
+        {/*<Alert type="info" expiredAt={createDate(10, 6, 2021)} style={{ width: '100%', margin: '0.5rem' }}>*/}
+        {/*    Скидки действительны при бронировании любой свободной летней даты до 10 июня*/}
+        {/*</Alert>*/}
         {listItems.slice(0, 4).map((item, i) => (
             <ListItem key={`list-item-${i}`} {...item}/>
         ))}

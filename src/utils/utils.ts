@@ -67,3 +67,7 @@ export const isElementVisible = (node: Element, gap = 150): boolean => {
     const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
     return !(rect.bottom < gap || rect.top - viewHeight >= -gap);
 };
+
+let counter = 0;
+
+export const generateId = (prefix = 'id'): string => `${prefix}-${counter++}`;

@@ -19,7 +19,7 @@ export default function ExtraPage(): JSX.Element {
                 </nav>
             </div>
             <style jsx global>{`
-                .page {
+                .page:not(.page--loading) {
                     height: 100%;
                 }
             `}</style>

@@ -29,7 +29,7 @@ const Genre: FC<GenreProps> = ({ imgSrc, paragraphs, title }) => (
 );
 
 export const Genres: FC = memo(() => {
-    useEventListener(globalThis, 'scroll', debounce(() => {
+    useEventListener('#__next', 'scroll', debounce(() => {
         $$(`.${styles.genres__container}`).forEach(it => {
             if (isElementVisible(it, 50)) {
                 it.style.transform = 'translateY(0)';

@@ -23,20 +23,11 @@ jobs:
 
       - name: Test
         run: |
-          npm install
-          npm test
+          yarn install --prodution=true
+          yarn test
 
       - name: Build
-        run: npm run build
-
-      - name: Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          server: vh302.timeweb.ru
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          local-dir: ./app/
-          server-dir: ./tmp/
+        run: yarn build:only
 
   Notify:
     needs: [Deploy]

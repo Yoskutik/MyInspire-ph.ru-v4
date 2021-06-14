@@ -25,8 +25,6 @@ export const Location: FC<LocationProps> = ({ location }) => {
     const ref = useRef(null);
     const mainPhoto = location.photosList[mainIndex];
 
-    console.log(location.photosList, mainIndex);
-
     let duration: string = null;
     if (location.duration === 1) {
         duration = 'Идеален для Фотопрогулки mini';

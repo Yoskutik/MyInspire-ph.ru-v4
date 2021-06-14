@@ -12,7 +12,7 @@ const FilterButton: FC<{onClick: () => void, text?: string, active?: boolean}> =
     </span>
 );
 
-const FilterCostButton: FC<{onClick: () => void, by: 'asc' | 'desc', active?: boolean}> = ({ onClick, by, active }) => (
+const FilterCostButton: FC<{ onClick: () => void, by: 'asc' | 'desc', active?: boolean }> = ({ onClick, by, active }) => (
     <span className={`${styles.filters__cost} ${styles[by]} ${active ? styles.active : ''}`} onClick={onClick}
           title="Сортировать по увеличению стоимости">
         <span/>
@@ -40,14 +40,14 @@ export const Filters: FC<FiltersProps> = ({ onChange, filters }) => {
                 <FilterCostButton onClick={() => updateFilters({ by: filters.by === 'asc' ? 'desc' : 'asc' })}
                                   by={filters.by || 'asc'} active={!!filters.by} />
             </div>
-            <div className={styles.filters__block}>
-                <FilterButton onClick={() => updateFilters({ darkness: null })} text="Все"
-                              active={filters.darkness === null}/>
-                <FilterButton onClick={() => updateFilters({ darkness: true })} text="Тёмные"
-                              active={filters.darkness === true}/>
-                <FilterButton onClick={() => updateFilters({ darkness: false })} text="Светлые"
-                              active={filters.darkness === false}/>
-            </div>
+            {/* <div className={styles.filters__block}> */}
+            {/*    <FilterButton onClick={() => updateFilters({ darkness: null })} text="Все" */}
+            {/*                  active={filters.darkness === null}/> */}
+            {/*    <FilterButton onClick={() => updateFilters({ darkness: true })} text="Тёмные" */}
+            {/*                  active={filters.darkness === true}/> */}
+            {/*    <FilterButton onClick={() => updateFilters({ darkness: false })} text="Светлые" */}
+            {/*                  active={filters.darkness === false}/> */}
+            {/* </div> */}
             <div className={styles.filters__block}>
                 <FilterButton onClick={() => updateFilters({ furniture: null })} text="Все"
                               active={filters.furniture === null}/>

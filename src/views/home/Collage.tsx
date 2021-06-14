@@ -1,4 +1,6 @@
-import React, { FC, memo, useEffect, useState } from 'react';
+import React, {
+    FC, memo, useCallback, useEffect, useRef, useState,
+} from 'react';
 import { $$ } from '@utils';
 import { Picture } from '@components';
 import { ArrowIcon } from '@components/icons';
@@ -8,10 +10,17 @@ export interface CollageProps {
     isMobile: boolean;
     photos: string[];
     arrowTop: number;
+    onFirstImageLoad: () => void;
 }
 
-export const Collage: FC<CollageProps> = memo(({ isMobile, photos, arrowTop }) => {
+export const Collage: FC<CollageProps> = memo(({ isMobile, photos, arrowTop, onFirstImageLoad }) => {
     const [images, setImages] = useState(photos);
+    const onFirstLoadDispatched = useRef(false);
+
+    const onLoad = useCallback(() => {
+        !onFirstLoadDispatched.current && onFirstImageLoad();
+        onFirstLoadDispatched.current = true;
+    }, []);
 
     useEffect(() => {
         if (!isMobile) return null;
@@ -31,7 +40,7 @@ export const Collage: FC<CollageProps> = memo(({ isMobile, photos, arrowTop }) =
         <div className={styles.collage}>
             {images.slice(-2).map((src, i) => (
                 <Picture src={`/photos/home/${isMobile ? 'vertical' : 'horizontal'}/${src}.jpg`} imgCls={styles.img}
-                         key={src} onLoad={() => window.dispatchEvent(new Event('resize'))} lazy={i === 0}/>
+                         key={src} onLoad={onLoad} lazy={i === 0}/>
             ))}
             <ArrowIcon cls={styles.arrow} size={20} style={{ top: arrowTop - 30 }}/>
         </div>

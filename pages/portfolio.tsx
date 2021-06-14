@@ -11,7 +11,7 @@ const keywords = 'Фотограф Санкт-Петербург портфол�
     + 'портфолио';
 
 const PortfolioPage: FC<PortfolioProps> = ({ isMobile, photos }) => (
-    <MainLayout title={title} description={description} keywords={keywords}>
+    <MainLayout title={title} description={description} keywords={keywords} customSpinnerRemove>
         <Portfolio isMobile={isMobile} photos={photos}/>
     </MainLayout>
 );

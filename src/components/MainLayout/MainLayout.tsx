@@ -1,7 +1,8 @@
-import React, { FC, ReactNode, useEffect } from 'react';
+import React, {
+    createContext, FC, ReactNode, useEffect, useState,
+} from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-import { useBooleanState } from '@utils';
 import { Spinner } from '../Spinner';
 import { Header } from './Header';
 import { Footer } from './Footer';
@@ -13,18 +14,29 @@ interface MainLayoutProps {
     children: ReactNode | ReactNode[];
     robots?: boolean;
     canonical?: string;
+    customSpinnerRemove?: boolean;
 }
 
-const styleFlex = { flex: 1 };
+interface IMainLayoutContext {
+    isSpinnerVisible: boolean;
+    setSpinnerVisible: (value: boolean) => void;
+}
+
+export const MainLayoutContext = createContext<IMainLayoutContext>(null);
 
 export const MainLayout: FC<MainLayoutProps> = ({
-    title, description, keywords, children, robots = true, canonical,
+    title, description, keywords, children, robots = true, canonical, customSpinnerRemove,
 }) => {
-    const [isSpinnerVisible, showSpinner, hideSpinner] = useBooleanState();
+    const [isSpinnerVisible, setSpinnerVisible] = useState(true);
 
     useEffect(() => {
+        !customSpinnerRemove && setSpinnerVisible(false);
+        const showSpinner = () => setSpinnerVisible(true);
+        const hideSpinner = () => setSpinnerVisible(false);
+
         Router.events.on('routeChangeStart', showSpinner);
         Router.events.on('routeChangeComplete', hideSpinner);
+
         return () => {
             Router.events.off('routeChangeStart', showSpinner);
             Router.events.off('routeChangeComplete', hideSpinner);
@@ -57,14 +69,13 @@ export const MainLayout: FC<MainLayoutProps> = ({
             <meta name="twitter:url" content="https://myinspire-ph.ru/"/>
         </Head>
         <Header/>
-        {isSpinnerVisible ? (
-            <Spinner className="page__loading-spinner" size={96}/>
-        ) : (
-            <div className="page">
+        <MainLayoutContext.Provider value={{ isSpinnerVisible, setSpinnerVisible }}>
+            {isSpinnerVisible && <Spinner className="page__loading-spinner" size={96}/>}
+            <div className={`page ${isSpinnerVisible ? 'page--loading' : ''}`}>
                 {children}
             </div>
-        )}
-        <div style={styleFlex}/>
+        </MainLayoutContext.Provider>
+        <div style={{ flex: 1 }}/>
         <Footer/>
     </>;
 };

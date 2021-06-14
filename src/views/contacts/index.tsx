@@ -1,11 +1,10 @@
-import { ToastProvider } from 'react-toast-notifications';
-import React, { FC } from 'react';
-import { Container } from '@components';
+import React, { FC, memo } from 'react';
+import { Container, ToastsProvider } from '@components';
 import styles from '@sass/pages/contacts/Contacts.module.scss';
 import { ContactsCard } from './ContactsCard';
 import { ContactsFeedback } from './ContactsFeedback';
 
-const Intro: FC = () => (
+const Intro: FC = memo(() => (
     <Container cls={styles.intro}>
         <div className={styles.intro__container}>
             <h2 className={styles.intro__title}>Запись на съёмку</h2>
@@ -21,16 +20,16 @@ const Intro: FC = () => (
             </div>
         </div>
     </Container>
-);
+));
 
 export const Contacts: FC = () => <>
     <Intro/>
     <Container cls={styles.contacts}>
         <Container cls={styles.contacts__container}>
-            <ToastProvider placement="bottom-right">
+            <ToastsProvider>
                 <ContactsCard/>
                 <ContactsFeedback/>
-            </ToastProvider>
+            </ToastsProvider>
         </Container>
     </Container>
 </>;

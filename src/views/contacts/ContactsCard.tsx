@@ -1,23 +1,20 @@
-import React, { FC } from 'react';
-import { useToasts } from 'react-toast-notifications';
+import React, { FC, useContext } from 'react';
+import { copyToClipboard } from '@utils';
+import { ToastContext } from '@components';
 import {
     InstagramIcon, VKIcon, PinterestIcon, WhatsAppIcon, CopyIcon,
 } from '@components/icons';
-import { copyToClipboard } from '@utils';
 import styles from '@sass/pages/contacts/Contacts.module.scss';
 
 const email = 'tatiana.mix.1910@gmail.com';
 const tel = '+7 (999) 515-42-17';
 
 const Links: FC = () => {
-    const { addToast } = useToasts();
+    const { makeToast } = useContext(ToastContext);
 
-    const onCopyClick = (str: string, message: string): void => {
+    const onCopyClick = (str: string, body: string): void => {
         copyToClipboard(str);
-        addToast(message, {
-            appearance: 'info',
-            autoDismiss: true,
-        });
+        makeToast({ body });
     };
 
     return (

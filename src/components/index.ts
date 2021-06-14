@@ -6,4 +6,5 @@ export * from './Breadcrumbs';
 export * from './Alert';
 export * from './Picture';
 export * from './Button';
+export * from './toasts';
 export * from './MainLayout/MainLayout';

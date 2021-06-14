@@ -1,6 +1,8 @@
-import React, { FC, MouseEvent, useRef, useState } from 'react';
-import { useToasts } from 'react-toast-notifications';
+import React, {
+    FC, MouseEvent, useContext, useRef, useState,
+} from 'react';
 import { $, $$, FetchRequest } from '@utils';
+import { ToastContext } from '@components';
 import styles from '@sass/pages/contacts/Contacts.module.scss';
 
 interface InputProps {
@@ -82,7 +84,7 @@ export const ContactsFeedback: FC = () => {
     const [showEmailError, setShowEmailError] = useState(false);
     const [showTelError, setShowTelError] = useState(false);
     const [showTelOrEmailError, setShowTelOrEmailError] = useState(false);
-    const { addToast } = useToasts();
+    const { makeToast } = useContext(ToastContext);
     const formRef = useRef<HTMLFormElement>();
 
     const onSubmit = (evt: MouseEvent) => {
@@ -113,15 +115,9 @@ export const ContactsFeedback: FC = () => {
             .then(() => {
                 lastSendAt = Date.now();
                 formRef.current.reset();
-                addToast('Сообщение успешно отправлено', {
-                    appearance: 'success',
-                    autoDismiss: true,
-                });
+                makeToast({ body: 'Сообщение успешно отправлено' });
             })
-            .catch(() => addToast('При отправке сообщения возникли ошибки', {
-                appearance: 'error',
-                autoDismiss: true,
-            }));
+            .catch(() => makeToast({ body: 'При отправке сообщения возникли ошибки', type: 'error' }));
     };
 
     return (

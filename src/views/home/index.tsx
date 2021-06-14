@@ -1,5 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useContext, useState } from 'react';
 import { $, debounce, useEventListener } from '@utils';
+import { MainLayoutContext } from '@components';
 import headerStyles from '@sass/mainLayout/Header.module.scss';
 import { Genres } from './Genres';
 import { Collage } from './Collage';
@@ -13,6 +14,12 @@ export interface HomeProps {
 
 export const Home: FC<HomeProps> = ({ isMobile, photos, size }) => {
     const [infoMargin, setInfoMargin] = useState<number>();
+    const { setSpinnerVisible } = useContext(MainLayoutContext);
+
+    const onLoad = useCallback(() => {
+        window.dispatchEvent(new Event('resize'));
+        setSpinnerVisible(false);
+    }, []);
 
     useEventListener(globalThis, 'resize', debounce(() => {
         const headerBottom = $(`.${headerStyles.header}`).getBoundingClientRect().height;
@@ -20,7 +27,7 @@ export const Home: FC<HomeProps> = ({ isMobile, photos, size }) => {
     }, 5));
 
     return <>
-        <Collage isMobile={isMobile} photos={photos} arrowTop={infoMargin}/>
+        <Collage isMobile={isMobile} photos={photos} arrowTop={infoMargin} onFirstImageLoad={onLoad}/>
         <Info marginTop={infoMargin}/>
         <Genres/>
         <style jsx global>{`

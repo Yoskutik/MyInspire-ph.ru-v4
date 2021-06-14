@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { GetServerSideProps } from 'next';
+import getConfig from 'next/config';
 import sizeOf from 'image-size';
 import { MainLayout } from '@components';
 import { Home, HomeProps } from '@views/home';
 import { getPhotos } from '@utils/server';
-import getConfig from 'next/config';
 
 const title = 'Фотограф в Санкт-Петербурге | Мельникова Татьяна';
 const description = 'Атмосферные фото в Санкт-Петербурге от профессионального фотографа. Экспресс фотосессия от ' +
@@ -12,7 +12,7 @@ const description = 'Атмосферные фото в Санкт-Петерб�
 const keywords = 'Фотограф Санкт-Петербург, Мельникова Татьяна, Фотограф СПб, Фотосессия СПб';
 
 const HomePage: FC<HomeProps> = ({ isMobile, photos, size }) => (
-    <MainLayout title={title} description={description} keywords={keywords}>
+    <MainLayout title={title} description={description} keywords={keywords} customSpinnerRemove>
         <Home isMobile={isMobile} photos={photos} size={size}/>
     </MainLayout>
 );

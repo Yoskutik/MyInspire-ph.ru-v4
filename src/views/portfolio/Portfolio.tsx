@@ -1,16 +1,24 @@
-import React, { FC, useState, useCallback, useMemo } from 'react';
+import React, {
+    FC, useState, useCallback, useMemo, useContext, useRef,
+} from 'react';
 import { $$, debounce, isElementVisible, useEventListener } from '@utils';
-import { Picture } from '@components';
+import { MainLayoutContext, Picture } from '@components';
 import styles from '@sass/pages/portfolio/Portfolio.module.scss';
 import { Gallery } from './Gallery';
 
-const Thumbnail: FC<{ imgSrc: string, onClick: () => void }> = ({ onClick, imgSrc }) => {
+interface ThumbnailProps {
+    imgSrc: string;
+    onClick: () => void;
+    onLoad: () => void;
+}
+
+const Thumbnail: FC<ThumbnailProps> = ({ onClick, imgSrc, onLoad }) => {
     const title = imgSrc.replace('.jpg', '');
 
     return (
         <div className={styles.thumbnail} onClick={onClick} role="button" tabIndex={0}>
             <div className={styles.thumbnail__photo}>
-                <Picture alt={title} src={`/photos/portfolio/thumbnails/${imgSrc}.jpg`}/>
+                <Picture alt={title} src={`/photos/portfolio/thumbnails/${imgSrc}.jpg`} onLoad={onLoad}/>
                 <div className={styles.thumbnail__title}>
                     {title}
                 </div>
@@ -28,7 +36,9 @@ export interface PortfolioProps {
 }
 
 export const Portfolio: FC<PortfolioProps> = ({ isMobile, photos }) => {
-    const [galleryItems, setGalleryItems] = useState<string[]>(null);
+    const [galleryItems, setGalleryItems] = useState<string[]>();
+    const amountOfLoadedImages = useRef(0);
+    const { setSpinnerVisible } = useContext(MainLayoutContext);
     const galleryItemsMap = useMemo(() => {
         const items: Record<string, string[]> = {};
         photos.gallery.forEach(it => {
@@ -53,10 +63,16 @@ export const Portfolio: FC<PortfolioProps> = ({ isMobile, photos }) => {
         });
     }));
 
+    const onThumbnailLoad = useCallback(() => {
+        amountOfLoadedImages.current++;
+        if (amountOfLoadedImages.current === photos.thumbnails.length) setSpinnerVisible(false);
+    }, []);
+
     return <>
         <div className={styles.portfolio}>
             {photos.thumbnails.map(imgSrc => (
-                <Thumbnail key={imgSrc} imgSrc={imgSrc} onClick={() => updateGalleryItems(imgSrc)} />
+                <Thumbnail key={imgSrc} imgSrc={imgSrc} onClick={() => updateGalleryItems(imgSrc)}
+                           onLoad={onThumbnailLoad}/>
             ))}
         </div>
         {galleryItems && (

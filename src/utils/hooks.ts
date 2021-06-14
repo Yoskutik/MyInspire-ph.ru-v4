@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
+import { $ } from './utils';
 
 export const useEventListener = (
-    target: EventTarget, event: string, listener: EventListenerOrEventListenerObject, trigger = true,
+    target: EventTarget | string, event: string, listener: EventListenerOrEventListenerObject, trigger = true,
 ): void => {
     useEffect(() => {
-        target.addEventListener(event, listener);
-        trigger && target.dispatchEvent(new Event(event));
-        return () => target.removeEventListener(event, listener);
+        const newTarget = typeof target === 'string' ? $(target) : target;
+        newTarget.addEventListener(event, listener);
+        trigger && newTarget.dispatchEvent(new Event(event));
+        return () => newTarget.removeEventListener(event, listener);
     });
 };
 
