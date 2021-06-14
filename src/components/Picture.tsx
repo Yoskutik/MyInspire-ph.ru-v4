@@ -1,4 +1,4 @@
-import React, { CSSProperties, FC, useMemo } from 'react';
+import React, { CSSProperties, FC, useCallback, useEffect, useMemo, useRef } from 'react';
 import getConfig from 'next/config';
 import { createKeywordGenerator } from '@utils';
 
@@ -17,13 +17,22 @@ const generator = createKeywordGenerator();
 
 export const Picture: FC<PictureProps> = ({ src, imgCls, picCls, lazy, alt: initialAlt, onLoad, onClick, style }) => {
     const alt = useMemo(() => initialAlt || generator.next().value, [src, initialAlt]);
+    const ref = useRef<HTMLImageElement>();
+    const onLoadTriggered = useRef(false);
     const { publicRuntimeConfig } = getConfig();
+
+    const onLoadFunc = useCallback(() => {
+        !onLoadTriggered.current && onLoad?.();
+        onLoadTriggered.current = true;
+    }, [onLoad]);
+
+    useEffect(() => onLoadFunc(), []);
 
     return (
         <picture style={style} className={picCls}>
             {!publicRuntimeConfig.dev && <source srcSet={`${src}.webp`} type="image/webp"/>}
-            <img className={imgCls} alt={alt} src={src} loading={lazy ? 'lazy' : 'eager'} onLoad={onLoad}
-                 onClick={onClick} />
+            <img onLoad={onLoadFunc} className={imgCls} alt={alt} src={src} loading={lazy ? 'lazy' : 'eager'}
+                 ref={ref} onClick={onClick} />
         </picture>
     );
 };

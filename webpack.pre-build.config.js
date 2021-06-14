@@ -30,6 +30,15 @@ module.exports = async () => {
         clearOnComplete: true,
     }, Presets.shades_classic);
 
+    console.log(`${colors.cyan('info')}  - Deleting olg WEBP images:`);
+    const oldWebpImages = glob.sync('public/photos/**/*.webp');
+    bar.start(oldWebpImages.length, 0);
+    oldWebpImages.forEach((img, i) => {
+        fs.unlinkSync(img);
+        bar.update(i + 1);
+    });
+    bar.stop();
+
     console.log(`${colors.cyan('info')}  - Converting JPG to WEBP:`);
     bar.start(jpgImages.length, 0);
     for (let i = 0; i < jpgImages.length; i++) {
