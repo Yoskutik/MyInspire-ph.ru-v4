@@ -22,11 +22,13 @@ export const Picture: FC<PictureProps> = ({ src, imgCls, picCls, lazy, alt: init
     const { publicRuntimeConfig } = getConfig();
 
     const onLoadFunc = useCallback(() => {
-        !onLoadTriggered.current && ref.current.complete && onLoad?.();
+        !onLoadTriggered.current && onLoad?.();
         onLoadTriggered.current = true;
     }, [onLoad]);
 
-    useEffect(() => onLoadFunc(), []);
+    useEffect(() => {
+        ref.current.complete && onLoadFunc();
+    }, []);
 
     return (
         <picture style={style} className={picCls}>
