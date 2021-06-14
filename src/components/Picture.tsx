@@ -22,7 +22,7 @@ export const Picture: FC<PictureProps> = ({ src, imgCls, picCls, lazy, alt: init
     const { publicRuntimeConfig } = getConfig();
 
     const onLoadFunc = useCallback(() => {
-        !onLoadTriggered.current && onLoad?.();
+        !onLoadTriggered.current && ref.current.complete && onLoad?.();
         onLoadTriggered.current = true;
     }, [onLoad]);
 
