@@ -18,7 +18,7 @@ let touchStartX: number;
 export const Gallery: FC<GalleryProps> = ({ photos, onClose }) => {
     const [mainIndex, setMainIndex] = useState(0);
     const [lastIndex, setLastIndex] = useState(0);
-    const [picStyle, setPicStyle] = useState<CSSProperties>(null);
+    const [picStyle, setPicStyle] = useState<CSSProperties>();
     const [locked, setLocked] = useState(false);
     const [fullScreenOpened, setFullScreenOpened] = useState(false);
     const ref = useRef<HTMLDivElement>();

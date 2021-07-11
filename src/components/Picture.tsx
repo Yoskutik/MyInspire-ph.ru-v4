@@ -11,11 +11,15 @@ export interface PictureProps {
     style?: CSSProperties;
     onLoad?: () => void;
     onClick?: () => void;
+    width?: number;
+    height?: number;
 }
 
 const generator = createKeywordGenerator();
 
-export const Picture: FC<PictureProps> = ({ src, imgCls, picCls, lazy, alt: initialAlt, onLoad, onClick, style }) => {
+export const Picture: FC<PictureProps> = ({
+    src, imgCls, picCls, lazy, alt: initialAlt, onLoad, onClick, style, width, height,
+}) => {
     const alt = useMemo(() => initialAlt || generator.next().value, [src, initialAlt]);
     const ref = useRef<HTMLImageElement>();
     const onLoadTriggered = useRef(false);
@@ -34,7 +38,7 @@ export const Picture: FC<PictureProps> = ({ src, imgCls, picCls, lazy, alt: init
         <picture style={style} className={picCls}>
             {!publicRuntimeConfig.dev && <source srcSet={`${src}.webp`} type="image/webp"/>}
             <img onLoad={onLoadFunc} className={imgCls} alt={alt} src={src} loading={lazy ? 'lazy' : 'eager'}
-                 ref={ref} onClick={onClick} />
+                 ref={ref} onClick={onClick} width={width} height={height}/>
         </picture>
     );
 };
