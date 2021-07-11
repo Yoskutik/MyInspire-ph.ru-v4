@@ -26,8 +26,9 @@ body {
   overflow: hidden;
   font-size: 1rem;
   display: flex;
-  height: 100%;
+  height: auto;
   margin: 0;
+  flex: 1;
 
   #__next {
     flex-direction: column;
