@@ -3,6 +3,7 @@
 html {
   min-height: 100%;
   font-size: 18px;
+  overflow: auto;
   height: 100%;
 
   @media screen and (max-width: $page-size-xl) {
@@ -85,20 +86,22 @@ a {
   }
 }
 
-div::-webkit-scrollbar {
-  position: fixed;
-  background: #fff;
-  height: 8px;
-  width: 8px;
+html, div {
+  &::-webkit-scrollbar {
+    position: fixed;
+    background: #fff;
+    height: 8px;
+    width: 8px;
 
-  &-button {
-    height: 0;
-    width: 0;
-  }
+    &-button {
+      height: 0;
+      width: 0;
+    }
 
-  &-thumb {
-    background: $border-color;
-    border-radius: 3px;
+    &-thumb {
+      background: $border-color;
+      border-radius: 3px;
+    }
   }
 }
 
