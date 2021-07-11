@@ -21,6 +21,7 @@ export default function ExtraPage(): JSX.Element {
             <style jsx global>{`
                 .page:not(.page--loading) {
                     height: 100%;
+                    flex: 12;
                 }
             `}</style>
         </MainLayout>
