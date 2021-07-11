@@ -5,6 +5,7 @@
   align-items: center;
   display: flex;
   height: 100%;
+  flex: 1;
 }
 
 .nav {
@@ -23,7 +24,6 @@
   font-size: 1.1rem;
   color: #777777;
   padding: 7px;
-  flex: 1;
 
   &:hover {
     color: #000;
