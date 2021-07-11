@@ -37,8 +37,8 @@ export const Collage: FC<CollageProps> = memo(({ isMobile, photos, arrowTop, onF
         return () => clearInterval(interval);
     }, []);
 
-    const imgWidth = window.innerWidth;
-    const imgHeight = size[1] * (window.innerWidth / size[0]);
+    const imgWidth = globalThis.innerWidth || size[0];
+    const imgHeight = globalThis.innerWidth ? size[1] * (globalThis.innerWidth / size[0]) : size[1];
 
     return (
         <div className={styles.collage}>
