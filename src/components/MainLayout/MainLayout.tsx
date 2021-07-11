@@ -70,7 +70,7 @@ export const MainLayout: FC<MainLayoutProps> = ({
         </Head>
         <Header/>
         <MainLayoutContext.Provider value={{ isSpinnerVisible, setSpinnerVisible }}>
-            {isSpinnerVisible && <Spinner className="page__loading-spinner" size={96}/>}
+            {isSpinnerVisible && <Spinner size={96}/>}
             <div className={`page ${isSpinnerVisible ? 'page--loading' : ''}`}>
                 {children}
             </div>
