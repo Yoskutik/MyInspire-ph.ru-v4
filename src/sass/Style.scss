@@ -21,19 +21,13 @@ html {
 
 body {
   font-family: "Gotham Custom", Arial, sans-serif;
-  flex-direction: column;
   color: $main_color;
-  min-height: 100%;
   overflow: hidden;
   font-size: 1rem;
-  display: flex;
-  height: auto;
   margin: 0;
-  flex: 1;
 
-  #__next {
+  &, & #__next {
     flex-direction: column;
-    overflow-y: auto;
     min-height: 100%;
     display: flex;
     height: auto;

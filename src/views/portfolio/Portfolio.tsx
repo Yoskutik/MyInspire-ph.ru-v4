@@ -56,7 +56,7 @@ export const Portfolio: FC<PortfolioProps> = ({ isMobile, photos }) => {
         setGalleryItems(imgSrc ? galleryItemsMap[imgSrc.replace('.jpg', '')] : null);
     }, []);
 
-    useEventListener('#__next', 'scroll', debounce(() => {
+    useEventListener('html', 'scroll', debounce(() => {
         if (!isMobile) return;
         $$(`.${styles.thumbnail}`).forEach(it => {
             isElementVisible(it, 230) ? it.classList.add(styles.hover) : it.classList.remove(styles.hover);
