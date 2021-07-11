@@ -27,7 +27,7 @@ export const Home: FC<HomeProps> = ({ isMobile, photos, size }) => {
     }, 5));
 
     return <>
-        <Collage isMobile={isMobile} photos={photos} arrowTop={infoMargin} onFirstImageLoad={onLoad}/>
+        <Collage isMobile={isMobile} photos={photos} arrowTop={infoMargin} onFirstImageLoad={onLoad} size={size}/>
         <Info marginTop={infoMargin}/>
         <Genres/>
         <style jsx global>{`

@@ -11,9 +11,10 @@ export interface CollageProps {
     photos: string[];
     arrowTop: number;
     onFirstImageLoad: () => void;
+    size: [number, number];
 }
 
-export const Collage: FC<CollageProps> = memo(({ isMobile, photos, arrowTop, onFirstImageLoad }) => {
+export const Collage: FC<CollageProps> = memo(({ isMobile, photos, arrowTop, onFirstImageLoad, size }) => {
     const [images, setImages] = useState(photos);
     const onFirstLoadDispatched = useRef(false);
 
@@ -36,11 +37,14 @@ export const Collage: FC<CollageProps> = memo(({ isMobile, photos, arrowTop, onF
         return () => clearInterval(interval);
     }, []);
 
+    const imgWidth = window.innerWidth;
+    const imgHeight = size[1] * (window.innerWidth / size[0]);
+
     return (
         <div className={styles.collage}>
             {images.slice(-2).map((src, i) => (
                 <Picture src={`/photos/home/${isMobile ? 'vertical' : 'horizontal'}/${src}.jpg`} imgCls={styles.img}
-                         key={src} onLoad={onLoad} lazy={i === 0}/>
+                         key={src} onLoad={onLoad} lazy={i === 0} width={imgWidth} height={imgHeight}/>
             ))}
             <ArrowIcon cls={styles.arrow} size={20} style={{ top: arrowTop - 30 }}/>
         </div>

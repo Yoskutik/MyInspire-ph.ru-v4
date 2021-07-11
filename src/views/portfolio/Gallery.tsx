@@ -51,8 +51,10 @@ export const Gallery: FC<GalleryProps> = ({ photos, onClose }) => {
             lastClickedIndexInLocking = index;
             return;
         }
-        let boundedIndex = index > 0 ? index : photos.length - 1;
+        let boundedIndex = index >= 0 ? index : photos.length - 1;
         boundedIndex = boundedIndex < photos.length ? boundedIndex : 0;
+        console.log(mainIndex, boundedIndex);
+        if (boundedIndex === mainIndex) return;
         const el = ref.current;
         const scrollSize = window.innerWidth > 767
             ? ((el.scrollHeight - el.clientHeight + 50) / photos.length)
