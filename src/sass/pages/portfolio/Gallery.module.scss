@@ -88,6 +88,7 @@ $blue_color: #0852BA;
 }
 
 .mainPhoto {
+  object-fit: scale-down;
   max-height: 100%;
   max-width: 100%;
   margin: 0 auto;
