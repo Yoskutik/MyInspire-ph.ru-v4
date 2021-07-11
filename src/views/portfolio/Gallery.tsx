@@ -105,32 +105,33 @@ export const Gallery: FC<GalleryProps> = ({ photos, onClose }) => {
             <div className={styles.mainContainer} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
                 {lastIndex > mainIndex && <>
                     <Picture src={`/photos/portfolio/gallery/${photos[mainIndex]}.jpg`} imgCls={styles.mainPhoto}
-                             style={picStyle}/>
+                             style={picStyle} width={1200} height={1800}/>
                     <Picture src={`/photos/portfolio/gallery/${photos[lastIndex]}.jpg`} imgCls={styles.mainPhoto}
-                             style={picStyle}/>
+                             style={picStyle} width={1200} height={1800}/>
                 </>}
                 {lastIndex < mainIndex && <>
                     <Picture src={`/photos/portfolio/gallery/${photos[lastIndex]}.jpg`} imgCls={styles.mainPhoto}
-                             style={picStyle}/>
+                             style={picStyle} width={1200} height={1800}/>
                     <Picture src={`/photos/portfolio/gallery/${photos[mainIndex]}.jpg`} imgCls={styles.mainPhoto}
-                             style={picStyle}/>
+                             style={picStyle} width={1200} height={1800}/>
                 </>}
                 {lastIndex === mainIndex && (
-                    <Picture src={`/photos/portfolio/gallery/${photos[mainIndex]}.jpg`} imgCls={styles.mainPhoto}/>
+                    <Picture src={`/photos/portfolio/gallery/${photos[mainIndex]}.jpg`} imgCls={styles.mainPhoto}
+                             width={1200} height={1800}/>
                 )}
                 <button className={`${styles.button} ${styles.left}`} onClick={choosePrev}>
-                    <ArrowIcon size={64}/>
+                    <ArrowIcon size={36}/>
                 </button>
                 <button className={`${styles.button} ${styles.right}`} onClick={chooseNext}>
-                    <ArrowIcon size={64}/>
+                    <ArrowIcon size={36}/>
                 </button>
                 {fullScreenOpened ? (
                     <button className={`${styles.button} ${styles.fullscreen}`} onClick={closeFullScreen}>
-                        <FullScreenCloseIcon size={32}/>
+                        <FullScreenCloseIcon size={24}/>
                     </button>
                 ) : (
                     <button className={`${styles.button} ${styles.fullscreen}`} onClick={openFullScreen}>
-                        <FullScreenOpenIcon size={32}/>
+                        <FullScreenOpenIcon size={24}/>
                     </button>
                 )}
             </div>
