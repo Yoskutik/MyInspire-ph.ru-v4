@@ -11,6 +11,7 @@
   }
 
   .img {
+    transition-property: opacity;
     transition-duration: 3.5s;
     position: fixed;
     height: auto;
