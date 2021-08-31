@@ -10,9 +10,10 @@ interface ListItemProps {
     price: number;
     additional?: string;
     discount?: number;
+    area: string;
 }
 
-const ListItem: FC<ListItemProps> = ({ title, description, price, additional, discount }) => (
+const ListItem: FC<ListItemProps> = ({ title, description, price, additional, discount, area }) => (
     <div className={styles.list__item}>
         <div className={styles.list__item_header}>
             <h2 className={styles.list__item_title}>{title}</h2>
@@ -41,20 +42,29 @@ const ListItem: FC<ListItemProps> = ({ title, description, price, additional, di
     </div>
 );
 
-const PriceList: FC = () => (
+const PriceList: FC = () => <>
     <Container cls={styles.list}>
         {/*<Alert type="info" expiredAt={createDate(10, 6, 2021)} style={{ width: '100%', margin: '0.5rem' }}>*/}
         {/*    Скидки действительны при бронировании любой свободной летней даты до 10 июня*/}
         {/*</Alert>*/}
-        {listItems.slice(0, 4).map((item, i) => (
-            <ListItem key={`list-item-${i}`} {...item}/>
+        <h3 className={styles.title}>Индивидуальные и парные</h3>
+        {listItems.usual.map((it, i) => (
+            <ListItem {...it} key={Math.random()} area={`usual${i}`}/>
         ))}
-        <hr/>
-        {listItems.slice(4).map((item, i) => (
-            <ListItem key={`list-item-${i}`} {...item}/>
+        <h3 className={styles.title}>Свадебные</h3>
+        {listItems.weddings.map((it, i) => (
+            <ListItem {...it} key={Math.random()} area={`usual${i}`}/>
         ))}
     </Container>
-);
+    <Container style={{ marginBottom: '1rem' }}>
+        <p>Дополнительное время 5000 рублей/час</p>
+        <p>Выезд за пределы города на свадебную съемку - за доплату и оговаривается индивидуально.</p>
+        <p>
+            Я снимаю только небольшие свадьбы, не снимаю банкеты и не уделяю внимание гостям. Мои снимки про пару и про
+            любовь, но пару общих кадров в загсе мы обязательно делаем.
+        </p>
+    </Container>
+</>;
 
 const Conditions: FC = () => <>
     {conditions.map((cond, i) => (

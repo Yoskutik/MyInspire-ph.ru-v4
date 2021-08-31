@@ -1,15 +1,20 @@
 @import '../../Constants';
 
 .list {
-  margin: 20px auto 2.5rem;
-  flex-wrap: wrap;
-  display: flex;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: 1fr 1fr;
+  margin: 20px auto;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+  display: grid;
 
-  & > hr {
-    border-color: $border_color;
-    border-top: 0;
-    margin-top: 20px;
-    width: 100%;
+  @media screen and (max-width: $page-size-xl) {
+    grid-template-rows: repeat(8, auto);
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (max-width: 640px) {
+    padding: 0 1rem;
   }
 
   &__item {
@@ -17,8 +22,8 @@
     border: 1px solid $border_color;
     justify-content: space-between;
     box-sizing: border-box;
-    margin: 1.5rem auto 0;
     position: relative;
+    margin: 0 auto;
     display: flex;
     width: 580px;
 
@@ -65,7 +70,6 @@
     }
 
     @media screen and (max-width: 640px) {
-      margin: 1.3rem 10px;
       width: 100%;
     }
 
@@ -89,4 +93,9 @@
       }
     }
   }
+}
+
+.title {
+  margin-left: 6px;
+  margin-bottom: 12px;
 }
