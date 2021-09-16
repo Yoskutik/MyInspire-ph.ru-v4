@@ -14,7 +14,7 @@ interface ButtonProps {
 export const Button: FC<ButtonProps> = ({ onClick, icon: Icon, text, cls = '', style, iconSize }) => (
     <button className={`${styles.button} ${text ? styles['button--text'] : ''} ${cls}`.trim()} onClick={onClick}
             style={style}>
-        {text && text}
+        {text}
         {Icon && <Icon size={iconSize}/>}
     </button>
 );

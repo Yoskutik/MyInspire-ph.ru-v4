@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect } from 'react';
+import React, { FC, memo } from 'react';
 import Link from 'next/link';
 import { Container, Picture } from '@components';
 import { InstagramIcon, VKIcon, WhatsAppIcon } from '@components/icons';
