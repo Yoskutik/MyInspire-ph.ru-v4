@@ -1,15 +1,5 @@
 [
   {
-    "name": "Вита",
-    "type": "Макияж",
-    "username": "g_hassliebe"
-  },
-  {
-    "name": "Аня",
-    "type": "Макияж + прическа",
-    "username": "annsemenenko_makeup"
-  },
-  {
     "name": "Настя",
     "type": "Макияж + прическа",
     "username": "ru.ururu"
@@ -18,5 +8,10 @@
     "name": "Аня",
     "type": "Макияж + прическа",
     "username": "anya_stylist_spb"
+  },
+  {
+    "name": "Мария",
+    "type": "Макияж + прическа",
+    "username": "skazkina.stylist"
   }
 ]

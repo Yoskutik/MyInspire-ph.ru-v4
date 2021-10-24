@@ -3,6 +3,7 @@ import { Container } from '@components';
 import conditions from '@data/conditions.json';
 import listItems from '@data/priceList.json';
 import styles from '@sass/pages/prices/Prices.module.scss';
+import Link from 'next/link';
 
 interface ListItemProps {
     title: string;
@@ -71,7 +72,20 @@ const Conditions: FC = () => <>
         <Container cls={styles.conditions} key={`condition-${i}`}>
             <h3 className={styles.conditions__title}>{cond.title}</h3>
             {cond.paragraphs.map((p, j) => (
-                <p className={styles.conditions__text} key={`conditions__text-${j}`}>{p}</p>
+                <p className={styles.conditions__text} key={`conditions__text-${j}`}>
+                  {((paragraph) => {
+                    const index = paragraph.indexOf('{studios}')
+                    if (index < 0) return paragraph;
+
+                    return <>
+                      {paragraph.slice(0, index)}
+                      <a href="/extra/studios/" target="_blank" rel="noreferrer" style={{ textDecoration: 'underline' }}>
+                        список проверенных студий
+                      </a>
+                      {paragraph.slice(index + 9)}
+                    </>;
+                  })(p)}
+                </p>
             ))}
         </Container>
     ))}
