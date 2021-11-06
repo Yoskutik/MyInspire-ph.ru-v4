@@ -24,3 +24,11 @@
     }
   }
 }
+
+.promo {
+  width: 1178px;
+
+  @media screen and (max-width: $page-size-m) {
+    width: initial;
+  }
+}
