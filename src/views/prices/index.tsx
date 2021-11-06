@@ -1,9 +1,10 @@
 import React, { FC, Fragment } from 'react';
-import { Container } from '@components';
+import { Alert, Container } from '@components';
 import conditions from '@data/conditions.json';
 import listItems from '@data/priceList.json';
 import styles from '@sass/pages/prices/Prices.module.scss';
 import Link from 'next/link';
+import { createDate } from '@utils';
 
 interface ListItemProps {
     title: string;
@@ -45,9 +46,9 @@ const ListItem: FC<ListItemProps> = ({ title, description, price, additional, di
 
 const PriceList: FC = () => <>
     <Container cls={styles.list}>
-        {/*<Alert type="info" expiredAt={createDate(10, 6, 2021)} style={{ width: '100%', margin: '0.5rem' }}>*/}
-        {/*    Скидки действительны при бронировании любой свободной летней даты до 10 июня*/}
-        {/*</Alert>*/}
+        <Alert type="info" expiredAt={createDate(15, 11, 2021)} style={{ width: '100%', margin: '0.5rem' }}>
+            Скидка при бронировании студийной съёмки активна до 15 ноября.
+        </Alert>
         <h3 className={styles.title}>Индивидуальные и парные</h3>
         {listItems.usual.map((it, i) => (
             <ListItem {...it} key={Math.random()} area={`usual${i}`}/>
