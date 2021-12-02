@@ -45,11 +45,11 @@ const ListItem: FC<ListItemProps> = ({title, description, price, additional, dis
 );
 
 const PriceList: FC = () => <>
-  <Container cls={styles.promo}>
-    <Alert type="info" expiredAt={createDate(15, 11, 2021)} style={{ margin: '0.5rem' }}>
-      Скидка при бронировании студийной съёмки активна до 15 ноября.
-    </Alert>
-  </Container>
+  {/*<Container cls={styles.promo}>*/}
+  {/*  <Alert type="info" expiredAt={createDate(15, 11, 2021)} style={{ margin: '0.5rem' }}>*/}
+  {/*    Скидка при бронировании студийной съёмки активна до 15 ноября.*/}
+  {/*  </Alert>*/}
+  {/*</Container>*/}
   <Container cls={styles.list}>
     <h3 className={styles.title}>Индивидуальные и парные</h3>
     {listItems.usual.map((it, i) => (
