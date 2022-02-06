@@ -1,12 +1,9 @@
-*.yaml
 *.md
 LICENSE
 license
 .npmignore
 *.yml
-*.txt
 .eslintrc*
 *.spec.js
 *.js.map
 *.coffee
-Makefile

@@ -1,4 +1,6 @@
-import React, { CSSProperties, FC, useCallback, useEffect, useMemo, useRef } from 'react';
+import React, {
+    CSSProperties, FC, useCallback, useEffect, useMemo, useRef,
+} from 'react';
 import getConfig from 'next/config';
 import { createKeywordGenerator } from '@utils';
 
