@@ -60,7 +60,7 @@
     "imagemin": "7.0.1",
     "imagemin-webp": "6.0.0",
     "natural": "4.0.4",
-    "next": "12.0.7",
+    "next": "12.0.9",
     "next-plugin-preact": "3.0.6",
     "node-telegram-bot-api": "0.56.0",
     "path": "0.12.7",
