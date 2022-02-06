@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { GetServerSideProps } from 'next';
 import { FetchRequest } from '@utils';
+import { Container, MainLayout } from '@components';
 import { BlogItem, IBlogItem, SearchField, Pager } from '@views/blog';
 import blog from '@data/blog.json';
-import { Container, MainLayout } from '@components';
 import styles from '@sass/pages/blog/BlogPage.module.scss';
 
 const title = 'Фотограф в Санкт-Петербурге | Мельникова Татьяна | Личный блог';
