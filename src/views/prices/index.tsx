@@ -44,11 +44,11 @@ const ListItem: FC<ListItemProps> = ({title, description, price, additional, dis
 );
 
 const PriceList: FC = () => <>
-    <Container style={{ width: '100%', marginTop: '1rem' }}>
-        <Alert type="info" expiredAt={createDate(10, 2, 2022)} style={{ margin: '0 1rem' }}>
-            Цена актуальна при бронировании до 10 февраля
-        </Alert>
-    </Container>
+    {/*<Container style={{ width: '100%', marginTop: '1rem' }}>*/}
+    {/*    <Alert type="info" expiredAt={createDate(10, 2, 2022)} style={{ margin: '0 1rem' }}>*/}
+    {/*        Цена актуальна при бронировании до 10 февраля*/}
+    {/*    </Alert>*/}
+    {/*</Container>*/}
   <Container cls={styles.list}>
     <h3 className={styles.title}>Индивидуальные и парные</h3>
     {listItems.usual.map((it, i) => (
