@@ -6,81 +6,41 @@
   margin-top: 2rem;
   display: flex;
 
-  &__block {
-    border: 1px solid $border_color;
-    border-radius: 5px;
-    margin-left: 20px;
-    display: flex;
-
-    & > span {
-      border-right: 1px solid $border_color;
-      padding: 5px 10px;
-      cursor: pointer;
-
-      &:last-child {
-        border-right: none;
-      }
-
-      &.active {
-        background: lighten($border_color, 5%);
-      }
-
-      &:hover {
-        background: lighten($border_color, 10%);
-      }
-
-      &:focus {
-        outline: none;
-      }
-    }
+  @media screen and (max-width: $page-size-l) {
+    flex-wrap: wrap;
   }
+}
 
-  &__cost {
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    display: flex;
+.switch {
+  border: 1px solid $border_color;
+  border-radius: 5px;
+  margin-left: 20px;
+  display: flex;
 
-    span {
-      background: darken($border_color, 10%);
-      margin-bottom: 4px;
-      border-radius: 5px;
-      display: block;
-      width: 10px;
-      height: 4px;
+  & > span {
+    border-right: 1px solid $border_color;
+    padding: 5px 10px;
+    cursor: pointer;
 
-      &:last-child {
-        margin-bottom: 0;
-      }
+    &:last-child {
+      border-right: none;
     }
 
-    &.asc {
-      span:first-child {
-        width: 5px;
-      }
-
-      span:last-child {
-        width: 15px;
-      }
+    &.active {
+      background: lighten($border_color, 5%);
     }
 
-    &.desc {
-      span:first-child {
-        width: 15px;
-      }
+    &:hover {
+      background: lighten($border_color, 10%);
+    }
 
-      span:last-child {
-        width: 5px;
-      }
+    &:focus {
+      outline: none;
     }
   }
 
   @media screen and (max-width: $page-size-l) {
-    flex-wrap: wrap;
-
-    &__block {
-      margin: 0 0 10px 10px;
-    }
+    margin: 0 0 10px 10px;
   }
 
   @media screen and (max-width: $page-size-m) {

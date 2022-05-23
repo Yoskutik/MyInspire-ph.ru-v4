@@ -21,7 +21,7 @@ export default function search(req: NextApiRequest, res: NextApiResponse): void 
         const query = natural.PorterStemmerRu.stem(body.query.toLowerCase());
         const response: string[] = [];
         Object.entries(data).forEach(([key, value]) => {
-            if (value.includes(query)) response.push(key);
+            value.includes(query) && response.push(key);
         });
         res.status(200).json(response);
         return;

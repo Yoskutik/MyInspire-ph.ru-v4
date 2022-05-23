@@ -10,19 +10,9 @@ const description = 'Посмотрите на подборку проверен
     + ' тону и наличию мебели, и найдите подходящую для Вас.';
 
 const ExtraStudiosPage: FC<{ images: string[] }> = ({ images }) => {
-    const [filters, setFilters] = useState<IFilters>({
-        furniture: null,
-        darkness: null,
-        by: null,
-    });
+    const [filters, setFilters] = useState<IFilters>({ furniture: null });
 
-    const filteredHalls = hals.filter(hall => filters.darkness === null || hall.darkness === filters.darkness)
-        .filter(hall => filters.furniture === null || hall.furniture === filters.furniture);
-
-    filteredHalls.sort((a, b) => {
-        if (filters.by === null) return 0;
-        return filters.by === 'asc' ? a.prices[0] - b.prices[0] : b.prices[0] - a.prices[0];
-    });
+    const filteredHalls = hals.filter(hall => filters.furniture === null || hall.furniture === filters.furniture);
 
     return (
         <MainLayout title="Мельникова Татьяна | Подборка проверенных студий" description={description} robots={false}>
@@ -41,7 +31,5 @@ const ExtraStudiosPage: FC<{ images: string[] }> = ({ images }) => {
 export default ExtraStudiosPage;
 
 export const getServerSideProps: GetServerSideProps = async () => ({
-    props: {
-        images: getPhotos('/extra/studios/'),
-    },
+    props: { images: getPhotos('/extra/studios/') },
 });

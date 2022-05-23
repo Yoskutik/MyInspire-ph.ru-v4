@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 export const linearTween = (t: number): number => t;
 
 export const easeInQuad = (t: number): number => t * t;

@@ -19,7 +19,7 @@ export class FetchRequest {
         this.baseUrl = typeof window === 'undefined' ? 'http://localhost:3000' : '';
         this.url = `/api${url}`;
         this.method = method;
-        if (params.constructor !== ({}).constructor) {
+        if (params instanceof FormData) {
             const tmp: Record<string, unknown> = {};
             params.forEach((value, key) => {
                 tmp[key] = value;

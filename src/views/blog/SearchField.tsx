@@ -1,4 +1,6 @@
-import React, { CSSProperties, FC, useCallback, useRef, useState } from 'react';
+import React, {
+    CSSProperties, FC, useCallback, useRef, useState, 
+} from 'react';
 import { useRouter } from 'next/router';
 import { debounce } from '@utils';
 import { Button } from '@components';

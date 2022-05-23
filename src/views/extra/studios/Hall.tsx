@@ -1,10 +1,10 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { Picture } from '@components';
 import styles from '@sass/pages/extra/studios/Hall.module.scss';
+import { Gallery } from '@views/portfolio/Gallery';
 
 interface InfoProps {
     title: string;
-    prices: number[];
     contacts?: {
         phone: string;
     };
@@ -33,17 +33,25 @@ interface HallProps extends InfoProps {
 
 const Preview: FC<{ photos: string[] }> = ({ photos }) => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const mainRef = useRef<HTMLImageElement>();
+    const smallRef = useRef<HTMLDivElement>();
+
+    useEffect(() => {
+        smallRef.current && (smallRef.current.style.maxHeight = `${mainRef.current.scrollHeight}px`);
+    }, []);
 
     return (
         <div className={styles.hall__preview}>
-            <Picture alt="Фотография зала" src={`/photos/extra/studios/${photos[activeIndex]}.jpg`}
+            <Picture alt="Фотография зала" src={`/photos/extra/studios/${photos[activeIndex]}.jpg`} ref={mainRef}
                      imgCls={`${styles['hall__preview_main-image']} ${photos.length > 1 ? '' : styles.single}`}/>
             {photos.length > 1 && (
-                <div className={styles.hall__preview_images}>
+                <div className={styles.hall__preview_images} ref={smallRef}>
                     {photos.map((photo, i) => (
                         <Picture alt="Фотография зала" onClick={() => setActiveIndex(i)} key={photo}
                                  src={`/photos/extra/studios/${photo}.jpg`}
-                                 imgCls={`${styles['hall__preview_small-image']} ${i === activeIndex ? styles.active : ''}`}/>
+                                 imgCls={
+                          `${styles['hall__preview_small-image']} ${i === activeIndex ? styles.active : ''}`
+                        }/>
                     ))}
                 </div>
             )}
@@ -51,15 +59,11 @@ const Preview: FC<{ photos: string[] }> = ({ photos }) => {
     );
 };
 
-const priceFormatter = new Intl.NumberFormat('ru-RU');
 const Info: FC<InfoProps> = props => (
     <div className={styles.hall__info}>
         <h3 className={styles.hall__info_name}>
             <a href={props.href} target="_blank" rel="noreferrer">{`Зал ${props.title}`}</a>
         </h3>
-        <span className={styles.hall__info_price}>
-            {props.prices.map(price => priceFormatter.format(+price)).reduce((prev, curr) => `${prev} / ${curr}`)}
-        </span>
         {/* eslint-disable-next-line react/no-danger */}
         <p className={styles.hall__info_description} dangerouslySetInnerHTML={{ __html: props.description }} />
         <div className={styles.hall__info_contacts}>
@@ -88,7 +92,7 @@ export const Hall: FC<HallProps> = props => (
         </h2>
         <div className={styles.hall__body}>
             <Preview photos={props.photos} />
-            <Info title={props.title} prices={props.prices} address={props.studioInfo.address || props.address}
+            <Info title={props.title} address={props.studioInfo.address || props.address}
                   contacts={props.studioInfo.contacts || props.contacts}
                   description={props.description} href={props.href} />
         </div>
